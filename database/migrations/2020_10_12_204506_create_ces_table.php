@@ -16,14 +16,14 @@ class CreateCesTable extends Migration
         Schema::create('ces', function (Blueprint $table) {
             $table->engine="InnoDB";
             $table->increments('id');
-            $table->string('word');
-            $table->string('description');
+            $table->char('word');
+            $table->text('description');
             $table->unsignedInteger('ra_id');
             $table->foreign('ra_id')->references('id')->on('ras');
             $table->unsignedInteger('task_id');
             $table->foreign('task_id')->references('id')->on('tasks');
             $table->integer('mark');
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }

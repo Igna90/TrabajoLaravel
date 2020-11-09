@@ -17,10 +17,10 @@ class CreateRasTable extends Migration
             $table->engine="InnoDB";
             $table->increments('id');
             $table->integer('number');
-            $table->string('description');
+            $table->text('description');
             $table->unsignedInteger('module_id');
             $table->foreign('module_id')->references('id')->on('modules');
-            $table->boolean('deleted');
+            $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
     }

@@ -7,6 +7,6 @@ $factory->define(App\ra::class, function (Faker $faker) {
         'number' => $faker->randomDigit,
         'description' => $faker->paragraph,
         'module_id' => \App\module::all()->random()->id,
-        'deleted' => $faker->boolean = false,
+        'deleted' => $faker->boolean
     ];
 });

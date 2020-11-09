@@ -9,6 +9,6 @@ class visit extends Model
     protected $table = 'visits';
 
     protected $fillable = [
-        'tutor_c_id', 'enterpise_id', 'date', 'kms', 'accepted', 'deleted',
+        'tracing_id', 'enterpise_id', 'date', 'kms', 'accepted', 'deleted',
     ];
 }

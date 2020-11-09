@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorksheetsTable extends Migration
+class CreateTracingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateWorksheetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('worksheets', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+        Schema::create('tracings', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->increments('id');
-            $table->date('date');
-            $table->string('description');
-            $table->unsignedInteger('student_id');
-            $table->foreign('student_id')->references('id')->on('users');
-            $table->boolean('accepted');
+            $table->string('type');
+            $table->string('reason');
+            $table->string('observation');
+            $table->unsignedInteger('tutor_c_id');
+            $table->foreign('tutor_c_id')->references('id')->on('users');
             $table->boolean('deleted')->default(false);
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateWorksheetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('worksheets');
+        Schema::dropIfExists('tutor_cs');
     }
 }

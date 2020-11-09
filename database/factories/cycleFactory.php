@@ -7,6 +7,6 @@ $factory->define(App\cycle::class, function (Faker $faker) {
         'grade' => $faker->sentence,
         'name' => $faker->name,
         'year' => $faker->year($max = 'now'),
-        'deleted' => $faker->boolean = false,
+        'deleted' => $faker->boolean
     ];
 });
