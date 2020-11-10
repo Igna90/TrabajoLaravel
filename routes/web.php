@@ -13,6 +13,7 @@
 
 Route::view('/', 'welcome');
 
+Route::view('/main', 'MainPage');
 
 Route::resource('admin','AdminController');
 
