@@ -19,3 +19,7 @@ Route::resource('admin','AdminController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Rutas de alumno
+Route::view('/alumno', 'alumnos/index');
+Route::view('/alumno/fichas', 'alumnos/fichas');
