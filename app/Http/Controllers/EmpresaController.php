@@ -37,8 +37,6 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $datosEmpresa=request()->all();
-
         $datosEmpresa=request()->except('_token');
 
 
