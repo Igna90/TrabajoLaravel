@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\enterprise;
+use App\task;
 use Illuminate\Http\Request;
 
 class TareasController extends Controller
@@ -14,8 +14,8 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $datos['tareas']=task::paginate(10);
-
+        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        
         return view('tareas.index',$datos);
     }
 
@@ -39,7 +39,7 @@ class TareasController extends Controller
     {
         $datosTarea=request()->except('_token');
 
-        tasks::insert($datosTarea);
+        task::insert($datosTarea);
 
         return response()->json($datosTarea);
     }
@@ -63,7 +63,9 @@ class TareasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tarea = task::findOrFail($id);
+
+        return view('tareas.edit', compact('tarea'));
     }
 
     /**
@@ -75,7 +77,7 @@ class TareasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datos=request()->except('_token');
     }
 
     /**
@@ -86,6 +88,9 @@ class TareasController extends Controller
      */
     public function destroy($id)
     {
-        enterprise::destroy($id);
+        $valor = task::where('id', $id);
+        $valor -> increment('deleted');
+        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        return view('tareas.index',$datos);
     }
 }

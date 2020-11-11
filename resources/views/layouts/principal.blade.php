@@ -52,6 +52,9 @@
 
             <!-- Logueado -->
             @Logged()
+            <a class="nav-link" href="{{ route('login') }}"><div class="sidebar-heading">
+                    Desloguearse
+                </div></a>
             @else
                 <a class="nav-link" href="{{ route('login') }}"><div class="sidebar-heading">
                     Inicia sesión

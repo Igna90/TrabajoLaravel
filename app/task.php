@@ -11,4 +11,10 @@ class task extends Model
     protected $fillable = [
         'number', 'description', 'deleted',
     ];
+    public function task_dones(){
+        return $this->hasMany(task_done::class);
+    }
+    public function ces(){
+        return $this->hasMany(ce::class);
+    }
 }
