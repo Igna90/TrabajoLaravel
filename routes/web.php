@@ -11,9 +11,7 @@
 |
 */
 
-Route::view('/', 'welcome');
-
-Route::view('/main', 'MainPage');
+Route::view('/', 'MainPage');
 
 Route::resource('admin','AdminController');
 
@@ -24,3 +22,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('empresa', 'EmpresaController');
+Route::resource('tareas', 'TareasController');
