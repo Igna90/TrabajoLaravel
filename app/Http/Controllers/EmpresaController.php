@@ -86,6 +86,6 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        enterprise::destroy($id);
+        enterprise::increment('deleted');
     }
 }
