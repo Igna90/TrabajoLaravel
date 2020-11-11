@@ -14,7 +14,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $datos['empresas']=enterprise::paginate(4);
+        $datos['empresas']=enterprise::paginate(10);
 
         return view('empresa.index',$datos);
     }
@@ -87,6 +87,5 @@ class EmpresaController extends Controller
     public function destroy($id)
     {
         enterprise::destroy($id);
-        return redirect('empresa');
     }
 }

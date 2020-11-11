@@ -11,4 +11,8 @@ class belong extends Model
     protected $fillable = [
         'student_id', 'enterprise_id', 'deleted',
     ];
+
+    public function enterprises(){
+        return $this->belongsTo(enterprise::class, 'enterprise_id');
+        }
 }

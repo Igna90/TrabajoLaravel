@@ -1,4 +1,7 @@
-Inicio(Pagina principal de admin)
+
+
+@extends('layouts.principal')
+@section('content')
 
 
 <table class="table">
@@ -13,7 +16,7 @@ Inicio(Pagina principal de admin)
     <tbody>
         @foreach($empresas as $empresa)
         <tr>
-            <td scope="row">{{$loop->iteration}} </td>
+           
             <td>{{ $empresa->name}} </td>
             <td>{{ $empresa->email}}</td>
             <td>Editar | 
@@ -29,3 +32,4 @@ Inicio(Pagina principal de admin)
         @endforeach
     </tbody>
 </table>
+@stop
