@@ -14,8 +14,10 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $datos['empresas']=enterprise::paginate(10);
+        $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
 
+       // $users = enterprise::table('users')->where('votes', 100)->get();
+        
         return view('empresa.index',$datos);
     }
 
@@ -86,6 +88,9 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        enterprise::increment('deleted');
+        $valor = enterprise::where('id', $id);
+        $valor -> increment('deleted');
+        $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
+         return view('empresa.index',$datos);
     }
 }

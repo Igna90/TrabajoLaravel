@@ -1,4 +1,6 @@
-Seccion para crear empresa:
+@extends('layouts.principal')
+@section('content')
+
 <br/>
 <br/>
 <form action="{{ url('/empresa')}}" method="post">
@@ -17,3 +19,4 @@ Seccion para crear empresa:
 
 
 </form>
+@stop
