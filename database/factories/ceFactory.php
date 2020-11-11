@@ -9,6 +9,6 @@ $factory->define(App\ce::class, function (Faker $faker) {
         'ra_id' => \App\ra::all()->random()->id,
         'task_id' => \App\task::all()->random()->id,
         'mark' => $faker->randomDigit,
-        'deleted' => $faker->boolean,
+        'deleted' => $faker->boolean = false,
     ];
 });

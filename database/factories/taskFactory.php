@@ -6,6 +6,6 @@ $factory->define(App\task::class, function (Faker $faker) {
     return [
         'number' => $faker->randomDigit,
         'description' => $faker->sentence,
-        'deleted' => $faker->boolean
+        'deleted' => $faker->boolean = false,
     ];
 });

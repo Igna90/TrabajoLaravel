@@ -8,6 +8,6 @@ $factory->define(App\tracing::class, function (Faker $faker) {
         'reason' => $faker->sentence,
         'observation' => $faker->sentence,
         'tutor_c_id' =>\App\User::all()->random()->id,
-        'deleted' => $faker->boolean,
+        'deleted' => $faker->boolean = false,
     ];
 });

@@ -7,6 +7,6 @@ $factory->define(App\task_done::class, function (Faker $faker) {
         'student_id' => \App\User::all()->random()->id,
         'task_id' => \App\task::all()->random()->id,
         'mark' => $faker->randomDigit,
-        'deleted' => $faker->boolean,
+        'deleted' => $faker->boolean = false,
     ];
 });
