@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('empresa', 'EmpresaController');
 Route::resource('tareas', 'TareasController');
+
+Route::get('logout', '\App\http\Controllers\Auth\LoginController@logout');
