@@ -1,5 +1,4 @@
 
-
 @extends('layouts.principal')
 @section('content')
 
@@ -14,6 +13,8 @@
     </thead>
 
     <tbody>
+
+    
         @foreach($empresas as $empresa)
         <tr>
            
@@ -25,11 +26,14 @@
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
             <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" >Borrar</button>
+
             </form>
             </td>
         </tr>
         
         @endforeach
+        <a href="{{ url('/empresa/create') }}">
+            Crear</a> |
     </tbody>
 </table>
 @stop

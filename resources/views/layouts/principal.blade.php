@@ -52,7 +52,7 @@
 
             <!-- Logueado -->
             @Logged()
-            <a class="nav-link" href="{{ route('login') }}"><div class="sidebar-heading">
+            <a class="nav-link" href="{{ route('logout') }}"><div class="sidebar-heading">
                     Desloguearse
                 </div></a>
             @else
