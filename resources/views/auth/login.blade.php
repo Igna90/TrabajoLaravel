@@ -41,15 +41,26 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
-                                        <div class="form-group">
+                                    <form class="user" method="POST" action="{{ route('login') }}">
+                                    {!! csrf_field() !!}
+                                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." name="email">
+                                            @if ($errors->has('email'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password" name="password">
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -58,13 +69,13 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                            <i class="fa fa-btn fa-sign-in"></i>Login
+                                        </button>
                                         <hr>
                                     </form>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="{{ route('register') }}">Create an Account!</a>
@@ -79,9 +90,7 @@
             </div>
 
         </div>
-
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -39,7 +39,6 @@ class EmpresaController extends Controller
     {
         $datosEmpresa=request()->except('_token');
 
-
         enterprise::insert($datosEmpresa);
 
         return response()->json($datosEmpresa);
