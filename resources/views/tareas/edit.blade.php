@@ -15,7 +15,7 @@
         <label for="description">{{'Descripción'}}</label>
         <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40">{{$tarea->description}}</textarea>
         <br>
-        <input type="submit" value="Editar" onclick="return confirm('¿Está seguro de querer editar?');">
+        <input type="submit" value="Editar" onclick="return confirm('¿Está seguro de querer editar?');" class="btn btn-primary">
     </form>
 </div>
 @stop

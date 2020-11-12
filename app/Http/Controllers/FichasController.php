@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\task;
+use App\worksheet;
 use Illuminate\Http\Request;
 
-class TareasController extends Controller
+class FichasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
         
-        return view('tareas.index',$datos);
+        return view('fichas.index',$datos);
     }
 
     /**
@@ -26,7 +26,7 @@ class TareasController extends Controller
      */
     public function create()
     {
-        return view('tareas.create');
+        return view('fichas.create');
     }
 
     /**
@@ -37,13 +37,12 @@ class TareasController extends Controller
      */
     public function store(Request $request)
     {
-        $datosTarea=request()->except('_token');
 
-        task::insert($datosTarea);
+        worksheet::insert(['date'=>request()->date, 'description'=>request()->description , 'student_id'=> auth()->id()]);
 
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
         
-        return view('tareas.index',$datos);
+        return view('fichas.index',$datos);
     }
 
     /**
@@ -65,9 +64,9 @@ class TareasController extends Controller
      */
     public function edit($id)
     {
-        $tarea = task::findOrFail($id);
+        $ficha = worksheet::findOrFail($id);
 
-        return view('tareas.edit', compact('tarea'));
+        return view('fichas.edit', compact('ficha'));
     }
 
     /**
@@ -80,10 +79,10 @@ class TareasController extends Controller
     public function update(Request $request, $id)
     {
         $datos=request()->except(['_token', '_method']);
-        task::where('id','=',$id)->update($datos);
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
-        
-        return view('tareas.index',$datos);
+        worksheet::where('id','=',$id)->update($datos);
+
+        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
+        return view('fichas.index',$datos);
     }
 
     /**
@@ -94,9 +93,10 @@ class TareasController extends Controller
      */
     public function destroy($id)
     {
-        $valor = task::where('id', $id);
+        $valor = worksheet::where('id', $id);
         $valor -> increment('deleted');
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
-        return view('tareas.index',$datos);
+
+        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
+        return view('fichas.index',$datos);
     }
 }
