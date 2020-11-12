@@ -43,7 +43,7 @@ class EmpresaController extends Controller
 
         enterprise::insert($datosEmpresa);
 
-        return response()->json($datosEmpresa);
+        
     }
 
     /**
@@ -65,7 +65,9 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $empresa = enterprise::findOrfail($id);
+
+        return view ('empresa.edit', compact('empresa'));
     }
 
     /**
@@ -77,7 +79,13 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datosEmpresa=request()->except(['_token','_method']);
+        enterprise::where('id','=',$id)->update($datosEmpresa);
+
+        $empresa = enterprise::findOrfail($id);
+
+        return view ('empresa.edit', compact('empresa'));
+
     }
 
     /**
