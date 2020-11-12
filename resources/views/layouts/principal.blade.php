@@ -67,7 +67,7 @@
                 Alumno
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ url('/tareas') }}">
                     <span>Ficha Seguimiento</span></a>
             </li>
             <li class="nav-item">
