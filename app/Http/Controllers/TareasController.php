@@ -41,7 +41,9 @@ class TareasController extends Controller
 
         task::insert($datosTarea);
 
-        return response()->json($datosTarea);
+        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        
+        return view('tareas.index',$datos);
     }
 
     /**
@@ -77,7 +79,11 @@ class TareasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datos=request()->except('_token');
+        $datos=request()->except(['_token', '_method']);
+        task::where('id','=',$id)->update($datos);
+        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        
+        return view('tareas.index',$datos);
     }
 
     /**
