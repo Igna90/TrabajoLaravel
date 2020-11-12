@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Editar empresa={{$empresa->id}}</h1>
+        <h1 class="h3 mb-0 text-gray-800">Editar empresa</h1>
         <a href="{{url('empresa')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Volver</a>
     </div>
     <form action="{{ url('/empresa/' .$empresa->id) }}" method="post">

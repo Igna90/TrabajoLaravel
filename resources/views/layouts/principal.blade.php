@@ -74,6 +74,13 @@
                 <a class="nav-link" href="charts.html">
                     <span>Asistencia</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('empresa')}}">
+                    <span>crud empresas</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('tareas')}}">
+                    <span>crud tareas</span></a>
             @endLoggedAL()
             @LoggedTL()
             @endLoggedTL()
