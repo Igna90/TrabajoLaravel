@@ -24,6 +24,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('fichas', 'FichasController');
 });
 Route::group(['middleware' => 'student'], function () {
+    Route::resource('fichas', 'FichasController');
 });
 Route::group(['middleware' => 'tl'], function () {
 });
@@ -32,7 +33,6 @@ Route::group(['middleware' => 'te'], function () {
 //
 Route::resource('empresa', 'EmpresaController');
 Route::resource('tareas', 'TareasController');
-Route::resource('fichas', 'FichasController');
 Route::resource('ciclo', 'CicloController');
 
 Route::get('logout', '\App\http\Controllers\Auth\LoginController@logout');
