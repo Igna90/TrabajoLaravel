@@ -50,11 +50,6 @@
 
             <!-- Logueado -->
             @Logged()
-            <a class="nav-link" href="{{ route('logout') }}">
-                <div class="sidebar-heading">
-                    Desloguearse
-                </div>
-            </a>
             @else
             <a class="nav-link" href="{{ route('login') }}">
                 <div class="sidebar-heading">
@@ -156,6 +151,11 @@
                             </div>
                         </li>
                         @Logged()
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Desloguearse</span>
+                            </a>
+                        </li>
                         @else
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="{{ route('login') }}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
