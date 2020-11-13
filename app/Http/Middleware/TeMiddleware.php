@@ -18,6 +18,6 @@ class TeMiddleware
         if (auth()->check() && auth()->user()->type === 'te'){
             return $next($request);
         }
-        return $next($request);
+        return redirect('/privilegios');
     }
 }

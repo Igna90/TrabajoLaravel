@@ -18,6 +18,6 @@ class StudentMiddleware
         if (auth()->check() && auth()->user()->type === 'al'){
             return $next($request);
         }
-        return redirect('/');
+        return redirect('/privilegios');
     }
 }

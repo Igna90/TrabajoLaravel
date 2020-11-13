@@ -18,6 +18,6 @@ class TlMiddleware
         if (auth()->check() && auth()->user()->type === 'tl'){
             return $next($request);
         }
-        return $next($request);
+        return redirect('/privilegios');
     }
 }

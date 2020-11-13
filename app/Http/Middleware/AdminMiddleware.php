@@ -18,6 +18,6 @@ class AdminMiddleware
         if (auth()->check() && auth()->user()->type === 'ad'){
             return $next($request);
         }
-        return redirect('/');
+        return redirect('/privilegios');
     }
 }
