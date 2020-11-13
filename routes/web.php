@@ -20,9 +20,16 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-
+Route::group(['middleware' => 'admin'], function () {
+    Route::resource('fichas', 'FichasController');
+});
+Route::group(['middleware' => 'student'], function () {
+});
+Route::group(['middleware' => 'tl'], function () {
+});
+Route::group(['middleware' => 'te'], function () {
+});
 Route::resource('empresa', 'EmpresaController');
 Route::resource('tareas', 'TareasController');
-Route::resource('fichas', 'FichasController');
 
 Route::get('logout', '\App\http\Controllers\Auth\LoginController@logout');
