@@ -28,7 +28,8 @@ class CreateUsersTable extends Migration
             $table->foreign('cycle_id')->references('id')->on('cycles');
             $table->rememberToken();
             $table->boolean('deleted')->default(false);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

@@ -24,7 +24,8 @@ class CreateCesTable extends Migration
             $table->foreign('task_id')->references('id')->on('tasks');
             $table->integer('mark');
             $table->boolean('deleted')->default(false);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

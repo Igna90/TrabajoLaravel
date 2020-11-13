@@ -22,7 +22,8 @@ class CreateTracingTable extends Migration
             $table->unsignedInteger('tutor_c_id');
             $table->foreign('tutor_c_id')->references('id')->on('users');
             $table->boolean('deleted')->default(false);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 
