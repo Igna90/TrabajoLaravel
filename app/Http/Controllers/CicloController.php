@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\enterprise;
+use App\cycle;
 use Illuminate\Http\Request;
 
-class EmpresaController extends Controller
+class CicloController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,11 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
+        $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
 
-       // $users = enterprise::table('users')->where('votes', 100)->get();
+       // $users = cycle::table('cicle')->where('votes', 100)->get();
         
-        return view('empresa.index',$datos);
+        return view('ciclo.index',$datos);
     }
 
     /**
@@ -28,7 +28,7 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        return view('empresa.create');
+        return view('ciclo.create');
     }
 
     /**
@@ -39,11 +39,16 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $datosEmpresa=request()->except('_token');
+        $datosCiclo=request()->except('_token');
 
-        enterprise::insert($datosEmpresa);
+        cycle::insert($datosCiclo);
 
-        return view('empresa.index',$datosEmpresa);
+        $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
+
+    
+         return view('ciclo.index',$datos);
+
+        
     }
 
     /**
@@ -65,9 +70,9 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $empresa = enterprise::findOrfail($id);
+        $ciclo = cycle::findOrfail($id);
 
-        return view ('empresa.edit', compact('empresa'));
+        return view ('ciclo.edit', compact('ciclo'));
     }
 
     /**
@@ -79,12 +84,12 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datosEmpresa=request()->except(['_token','_method']);
-        enterprise::where('id','=',$id)->update($datosEmpresa);
+        $datosCiclo=request()->except(['_token','_method']);
+        cycle::where('id','=',$id)->update($datosCiclo);
 
-        $empresa = enterprise::findOrfail($id);
+        $ciclo = cycle::findOrfail($id);
 
-        return view ('empresa.edit', compact('empresa'));
+        return view ('ciclo.edit', compact('ciclo'));
 
     }
 
@@ -96,9 +101,9 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        $valor = enterprise::where('id', $id);
+        $valor = cycle::where('id', $id);
         $valor -> increment('deleted');
-        $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
-         return view('empresa.index',$datos);
+        $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
+         return view('ciclo.index',$datos);
     }
 }
