@@ -82,13 +82,13 @@
                 <a class="nav-link" href="{{url('ciclo')}}">
                     <span>crud ciclos</span></a>
 
-                @endLoggedAL()
-                @LoggedTL()
-                @endLoggedTL()
-                @LoggedTE()
-                <div class="sidebar-heading">
-                    Tutor educativo
-                </div>
+            @endLoggedAL()
+            @LoggedTL()
+            @endLoggedTL()
+            @LoggedTE()
+            <div class="sidebar-heading">
+                Tutor educativo
+            </div>
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <span>Tareas</span></a>
@@ -98,7 +98,7 @@
                     <span>Módulos</span></a>
             </li>
             @endLoggedTE()
-            <!-- Divider -->
+                <!-- Divider -->
             <hr class="sidebar-divider">
         </ul>
         <!-- End of Sidebar -->

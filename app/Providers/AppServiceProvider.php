@@ -30,13 +30,13 @@ class AppServiceProvider extends ServiceProvider
             return auth()->check() && auth()->user()->type === 'ad';
         });
         \Blade::if ('LoggedAL', function() {
-            return auth()->check() && auth()->user()->type === 'al';
+            return auth()->check() && (auth()->user()->type === 'al' || auth()->user()->type === 'ad');
         });
         \Blade::if ('LoggedTL', function() {
-            return auth()->check() && auth()->user()->type === 'tl';
+            return auth()->check() && (auth()->user()->type === 'tl' || auth()->user()->type === 'ad');
         });
         \Blade::if ('LoggedTE', function() {
-            return auth()->check() && auth()->user()->type === 'te';
+            return auth()->check() && (auth()->user()->type === 'te' || auth()->user()->type === 'ad');
         });
     }
 }
