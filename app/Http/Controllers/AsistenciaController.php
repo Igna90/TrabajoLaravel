@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\worksheet;
+use App\assistance;
 use Illuminate\Http\Request;
 
-class FichasController extends Controller
+class AsistenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class FichasController extends Controller
      */
     public function index()
     {
-        $datos['fichas']=worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
-        
-        return view('fichas.index',$datos);
+        $datos['asistencias']=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
+        $ultima = assistance::latest('created_at')->first();
+        return view('asistencia.index',[$datos, $ultima]);
     }
 
     /**
@@ -26,7 +26,7 @@ class FichasController extends Controller
      */
     public function create()
     {
-        return view('fichas.create');
+        return view('asistencia.create');
     }
 
     /**
@@ -37,12 +37,12 @@ class FichasController extends Controller
      */
     public function store(Request $request)
     {
-
-        worksheet::insert(['date'=>request()->date, 'description'=>request()->description , 'student_id'=> auth()->id()]);
-
-        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
         
-        return view('fichas.index',$datos);
+        assistance::insert(['date'=>date('Y-m-d H:i:s'), 'assistance'=>request()->assistance , 'student_id'=> auth()->id()]);
+
+        $datos['asistencias']=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
+        
+        return "view('asistencia.index',$datos)";
     }
 
     /**
@@ -64,9 +64,7 @@ class FichasController extends Controller
      */
     public function edit($id)
     {
-        $ficha = worksheet::findOrFail($id);
-
-        return view('fichas.edit', compact('ficha'));
+        
     }
 
     /**
@@ -78,11 +76,7 @@ class FichasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datos=request()->except(['_token', '_method']);
-        worksheet::where('id','=',$id)->update($datos);
-
-        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
-        return view('fichas.index',$datos);
+        
     }
 
     /**
@@ -93,10 +87,6 @@ class FichasController extends Controller
      */
     public function destroy($id)
     {
-        $valor = worksheet::where('id', $id);
-        $valor -> increment('deleted');
-
-        $datos['fichas']=worksheet::where('deleted', 0)->paginate(10);
-        return view('fichas.index',$datos);
+        
     }
 }

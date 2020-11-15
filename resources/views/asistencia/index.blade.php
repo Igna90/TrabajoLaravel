@@ -1,11 +1,12 @@
 @extends('layouts.principal')
 @section('title')
-<title>Fichas</title>
+<title>asistencias</title>
 @stop
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Fichas de seguimiento</h1>
+        <h1 class="h3 mb-0 text-gray-800">Asistencias de seguimiento </h1>
+        <!-- {{ $asistencias->created_at->format("W")}} {{ date('W') }} -->
         <a href="{{url('/')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Volver</a>
     </div>
@@ -13,17 +14,16 @@
         <thead>
             <th>Fecha</th>
             <th>Descripción</th>
-            <th>Acciones</th>
         </thead>
         <tbody>
-        @foreach($fichas as $ficha)
+        @foreach($asistencias as $asistencia)
             <tr>
-                <td>{{$ficha-> date}}</td>
-                <td>{{$ficha-> description}}</td>
+                <td>{{$asistencia-> date}}</td>
+                <td>{{$asistencia-> assistance}}</td>
                 <td>
-                <a href="{{ url('/fichas/'.$ficha->id.'/edit') }}" class="btn btn-info btn-icon-split text">editar</a>
+                <a href="{{ url('/asistencias/'.$asistencia->id.'/edit') }}" class="btn btn-info btn-icon-split text">editar</a>
                 
-                <form method="post" action="{{url('/fichas/' .$ficha->id) }}">
+                <form method="post" action="{{url('/asistencias/' .$asistencia->id) }}">
                 {{csrf_field()}}
                 {{ method_field('DELETE')}}
                 <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger btn-icon-split">Borrar</button></form>
@@ -32,8 +32,13 @@
         @endforeach
         </tbody>
     </table>
-    {{$fichas->links()}}
-    <a href="{{ url('/fichas/create') }}" class="btn btn-primary">
+    <!-- {{$asistencias->links()}}
+    @if ($ultima->created_id->form())
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif -->
+    <a href="{{ url('/asistencia/create') }}" class="btn btn-primary">
         <span class="text">Crear</span>
     </a>
 </div>
