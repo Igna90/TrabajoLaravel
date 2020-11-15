@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\enterprise;
+use App\cycle;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,11 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $datos['usuarios']=User::where('deleted', 0)->paginate(10);
+        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
 
-       // $users = enterprise::table('users')->where('votes', 100)->get();
-        
-        return view('usuario.index',$datos);
+
+
+        return view('usuario.index', $datos);
     }
 
     /**
@@ -30,8 +31,11 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $empresas = enterprise::pluck('name', 'id');
-        return view('usuario.create', compact('id', 'products'));
+
+        $empresas = enterprise::all()->where('deleted', 0);
+
+        $ciclos = cycle::all()->where('deleted', 0);
+        return view('usuario.create', compact('empresas', 'ciclos'));
     }
 
     /**
@@ -42,11 +46,15 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $datosUsuario=request()->except('_token');
+        $datosUsuario = request()->except('_token');
 
         User::insert($datosUsuario);
 
-        return view('empresa.index',$datosUsuario);
+        $datos['usuario'] = User::where('deleted', 0)->paginate(10);
+
+        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
+
+        return view('usuario.index', $datos);
     }
 
     /**
@@ -68,10 +76,10 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
+        $usuario = User::findOrfail($id);
+        $empresas = enterprise::all();
 
-        
-
-        return view ('usuario.edit');
+        return view('usuario.edit', compact('usuario', 'empresas'));
     }
 
     /**
@@ -83,13 +91,12 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $datosUsuario=request()->except(['_token','_method']);
-        User::where('id','=',$id)->update($datosUsuario);
+        $datosUsuario = request()->except(['_token', '_method']);
+        User::where('id', '=', $id)->update($datosUsuario);
 
         $usuario = User::findOrfail($id);
 
-        return view ('usuario.edit', compact('usuario'));
-
+        return view('usuario.edit', compact('usuario'));
     }
 
     /**
@@ -101,8 +108,8 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
         $valor = User::where('id', $id);
-        $valor -> increment('deleted');
-        $datos['usuarios']=User::where('deleted', 0)->paginate(10);
-         return view('empresa.index',$datos);
+        $valor->increment('deleted');
+        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
+        return view('usuario.index', $datos);
     }
 }

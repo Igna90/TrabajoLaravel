@@ -34,22 +34,19 @@
         <input type="text" name="password" id="password" value="{{$usuario-> password}}">
         <br />
         <br />
-        <label for="tyoe">{{'Tipo de usuario:'}}</label>
-        <input type="radio" name="tyoe" value="Alumno"> Alumno
-        <input type="radio" name="tyoe" value="Tutor educativo"> Tutor educativo
+        <label for="type">{{'Tipo de usuario:'}}</label>
+        <input type="radio" name="type" value="Alumno"> Alumno
+        <input type="radio" name="type" value="Tutor educativo"> Tutor educativo
         <br />
         <br />
-        <select id="enterprise_id" name="enterprise_id"></select>
-        <div class="form-group">
-            
-        
-        <h2>Select</h2>
-            <select name="empresas" size="5">
-     @foreach($datosempresas as $empresa)
-        <option value="{{ $empresa->id}}"  >{{ $empresa->name}}</option>
+        <label for="">Empresas</label>
+            <select name="name" id="inputEmpresa_id" class="form-control">
+     @foreach($empresas as $empresa)
+        <option value="{{ $empresa['id'] }}"  >{{ $empresa ['name'] }}</option>
      @endforeach
-     
     </select>
+            
+    
 
         <input type="submit" value="Editar">
 

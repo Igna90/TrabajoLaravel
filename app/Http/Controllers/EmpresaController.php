@@ -43,7 +43,9 @@ class EmpresaController extends Controller
 
         enterprise::insert($datosEmpresa);
 
-        return view('empresa.index',$datosEmpresa);
+        $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
+
+        return view('empresa.index',$datos);
     }
 
     /**
