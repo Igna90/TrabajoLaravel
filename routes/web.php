@@ -31,6 +31,8 @@ Route::group(['middleware' => 'tl'], function () {
 Route::group(['middleware' => 'te'], function () {
 });
 //
+
+Route::resource('usuario', 'UsuarioController');
 Route::resource('empresa', 'EmpresaController');
 Route::resource('tareas', 'TareasController');
 Route::resource('ciclo', 'CicloController');
