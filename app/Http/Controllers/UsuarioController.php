@@ -19,8 +19,6 @@ class UsuarioController extends Controller
     {
 
         $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
-        //$datos2['empresas'] = enterprise::where('deleted', 0)->paginate(10);
-       // $datos3['ciclos'] = cycle::where('deleted', 0)->paginate(10);
 
         return view('usuario.index', $datos);
     }

@@ -15,8 +15,6 @@ class CicloController extends Controller
     public function index()
     {
         $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
-
-       // $users = cycle::table('cicle')->where('votes', 100)->get();
         
         return view('ciclo.index',$datos);
     }

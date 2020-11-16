@@ -15,8 +15,6 @@ class EmpresaController extends Controller
     public function index()
     {
         $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
-
-       // $users = enterprise::table('users')->where('votes', 100)->get();
         
         return view('empresa.index',$datos);
     }
