@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         factory(\App\enterprise::class, 5)->create();
         factory(\App\cycle::class, 2)->create();
-        factory(\App\User::class)->create(['email' => 'admin@damin.com', 'password'=>bcrypt('123456'), 'type'=>'ad']);
+        factory(\App\User::class)->create(['email' => 'admin@admin.com', 'password'=>bcrypt('123456'), 'type'=>'ad']);
         factory(\App\User::class, 5)->create();
         factory(\App\task::class, 10)->create();
         factory(\App\belong::class, 5)->create();
