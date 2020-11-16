@@ -1,19 +1,23 @@
 @extends('layouts.principal')
 @section('title')
-<title>asistencias</title>
+<title>Asistencias</title>
 @stop
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Asistencias de seguimiento </h1>
-        <!-- {{ $asistencias->created_at->format("W")}} {{ date('W') }} -->
         <a href="{{url('/')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Volver</a>
     </div>
+    @if({{ $asistencias->last()->created_at->format("W") }} === {{ date('W')}})
+        <a href="{{ url('/asistencia/create') }}" class="btn btn-primary">
+            <span class="text">Crear asistencia esta semana</span>
+        </a>
+    @endif
     <table class="table table-bordered">
         <thead>
             <th>Fecha</th>
-            <th>Descripción</th>
+            <th>Asistencia</th>
         </thead>
         <tbody>
         @foreach($asistencias as $asistencia)
@@ -32,14 +36,7 @@
         @endforeach
         </tbody>
     </table>
-    <!-- {{$asistencias->links()}}
-    @if ($ultima->created_id->form())
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif -->
-    <a href="{{ url('/asistencia/create') }}" class="btn btn-primary">
-        <span class="text">Crear</span>
-    </a>
+    
+    
 </div>
 @stop

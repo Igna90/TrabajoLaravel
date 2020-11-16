@@ -15,7 +15,7 @@ class TeMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->type === 'te'){
+        if (auth()->check() && (auth()->user()->type === 'te' || auth()->user()->type === 'ad')){
             return $next($request);
         }
         return redirect('/privilegios');

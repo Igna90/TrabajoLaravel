@@ -15,7 +15,7 @@ class StudentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->type === 'al'){
+        if (auth()->check() && (auth()->user()->type === 'al' || auth()->user()->type === 'ad')){
             return $next($request);
         }
         return redirect('/privilegios');

@@ -57,7 +57,24 @@
                 </div>
             </a>
             @endLogged()
-            @LoggedAL()
+            @LoggedAD()
+            <div class="sidebar-heading">
+                Administrador
+            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('usuario')}}">
+                    <span>Usuarios</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('empresa')}}">
+                    <span>Empresas</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('ciclo')}}">
+                    <span>crud ciclos</span></a>
+            <hr class="sidebar-divider">
+            @endLoggedAD()
+            @LoggedALyAD()
 
             <!-- Alumno -->
             <div class="sidebar-heading">
@@ -65,41 +82,32 @@
             </div>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/fichas') }}">
-                    <span>Ficha Seguimiento</span></a>
+                    <span>Fichas de Seguimiento</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ url('/asistencia') }}">
                     <span>Asistencia</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('empresa')}}">
-                    <span>crud empresas</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('tareas')}}">
-                    <span>crud tareas</span></a>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('ciclo')}}">
-                    <span>crud ciclos</span></a>
-
+            <hr class="sidebar-divider">
             @endLoggedAL()
             @LoggedTL()
             @endLoggedTL()
-            @LoggedTE()
+            @LoggedTEyAD()
             <div class="sidebar-heading">
                 Tutor educativo
             </div>
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{url('tareas')}}">
                     <span>Tareas</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <span>Módulos</span></a>
             </li>
-            @endLoggedTE()
-                <!-- Divider -->
             <hr class="sidebar-divider">
+            @endLoggedTEyAD()
+            
+                <!-- Divider -->
         </ul>
         <!-- End of Sidebar -->
 

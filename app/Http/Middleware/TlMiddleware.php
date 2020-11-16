@@ -15,7 +15,7 @@ class TlMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->check() && auth()->user()->type === 'tl'){
+        if (auth()->check() && (auth()->user()->type === 'tl' || auth()->user()->type === 'ad')){
             return $next($request);
         }
         return redirect('/privilegios');
