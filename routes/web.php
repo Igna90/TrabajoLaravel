@@ -13,15 +13,21 @@
 
 Route::view('/', 'MainPage');
 
-Route::resource('admin','AdminController');
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', '\App\http\Controllers\Auth\LoginController@logout');
+Route::view('privilegios', 'privilegios');
 
 //Permisos por usuario logueado
 Route::group(['middleware' => 'admin'], function () {
+    Route::resource('usuario', 'UsuarioController');
+    Route::resource('empresa', 'EmpresaController');
+    Route::resource('ciclo', 'CicloController');
+
     Route::resource('fichas', 'FichasController');
+    Route::resource('asistencia', 'AsistenciaController');
+   
+    Route::resource('tareas', 'TareasController');
 });
 Route::group(['middleware' => 'student'], function () {
     Route::resource('fichas', 'FichasController');
@@ -30,13 +36,8 @@ Route::group(['middleware' => 'student'], function () {
 Route::group(['middleware' => 'tl'], function () {
 });
 Route::group(['middleware' => 'te'], function () {
+    Route::resource('tareas', 'TareasController');
 });
-//
-
-Route::resource('usuario', 'UsuarioController');
-Route::resource('empresa', 'EmpresaController');
-Route::resource('tareas', 'TareasController');
-Route::resource('ciclo', 'CicloController');
-
-Route::get('logout', '\App\http\Controllers\Auth\LoginController@logout');
-Route::view('privilegios', 'privilegios');
+// Borrar
+Route::resource('admin','AdminController');
+Route::get('/home', 'HomeController@index')->name('home');
