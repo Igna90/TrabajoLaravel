@@ -13,7 +13,6 @@
 
 Route::view('/', 'MainPage');
 
-Route::resource('admin','AdminController');
 
 Auth::routes();
 
@@ -22,6 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Permisos por usuario logueado
 Route::group(['middleware' => 'admin'], function () {
     Route::resource('fichas', 'FichasController');
+    
 });
 Route::group(['middleware' => 'student'], function () {
     Route::resource('fichas', 'FichasController');

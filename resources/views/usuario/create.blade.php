@@ -34,7 +34,7 @@
         <br />
         <br />
         <label for="password">{{'Contraseña del usuario'}}</label>
-        <input type="text" name="password" id="password" value="">
+        <input type="password" name="password" id="password" value="">
         <br />
         <br />
         <label for="type">{{'Tipo de usuario:'}}</label>
@@ -61,8 +61,8 @@
             </select>
             <br />
             <br />
-
-            <input type="submit" value="Crear">
+            
+            <input type="submit" value="Crear" class="btn btn-primary">
 
 
 

@@ -31,7 +31,7 @@
         <br />
         <br />
         <label for="password">{{'Contraseña del usuario'}}</label>
-        <input type="text" name="password" id="password" value="{{$usuario-> password}}">
+        <input type="password" name="password" id="password" value="{{$usuario-> password}}">
         <br />
         <br />
         <label for="type">{{'Tipo de usuario:'}}</label>
@@ -39,14 +39,27 @@
         <input type="radio" name="type" value="Tutor educativo"> Tutor educativo
         <br />
         <br />
+
+
         <label for="">Empresas</label>
-            <select name="name" id="inputEmpresa_id" class="form-control">
-     @foreach($empresas as $empresa)
-        <option value="{{ $empresa['id'] }}"  >{{ $empresa ['name'] }}</option>
-     @endforeach
-    </select>
-            
-    
+        <select name="name" id="inputEmpresa_id">
+            @foreach($empresas as $empresa)
+            <option value="{{ $empresa['id'] }}">{{ $empresa ['name'] }}</option>
+            @endforeach
+        </select>
+
+        <br />
+        <br />
+        <label for="cycle_id">Elige un ciclo para el alumno</label>
+        <select name="cycle_id" id="cycle_id">
+            <option value="">--Escoja el ciclo--</option>
+            @foreach($ciclos as $ciclo)
+            <option value="{{ $ciclo['id'] }}">{{ $ciclo ['name'] }}</option>
+            @endforeach
+        </select>
+        <br />
+        <br />
+
 
         <input type="submit" value="Editar">
 
