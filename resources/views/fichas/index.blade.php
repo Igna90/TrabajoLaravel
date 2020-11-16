@@ -10,6 +10,8 @@
                 class="fas fa-download fa-sm text-white-50"></i> Volver</a>
     </div>
     <table class="table table-bordered">
+        @LoggedAL()
+        @foreach($fichasAl as $ficha)
         <thead>
             <th>Fecha</th>
             <th>Descripción</th>
@@ -17,8 +19,6 @@
         </thead>
         
         <tbody>
-        @LoggedAL()
-        @foreach($fichasAl as $ficha)
             <tr>
                 <td>{{$ficha-> date}}</td>
                 <td>{{$ficha-> description}}</td>
@@ -35,9 +35,17 @@
         @endLoggedAL
         @LoggedAD()
         @foreach($fichas as $ficha)
+        <thead>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>id alumno</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
             <tr>
                 <td>{{$ficha-> date}}</td>
                 <td>{{$ficha-> description}}</td>
+                <td>{{$ficha-> student_id}}</td>
                 <td>
                 <a href="{{ url('/fichas/'.$ficha->id.'/edit') }}" class="btn btn-info btn-icon-split text">editar</a>
                 <form method="post" action="{{url('/fichas/' .$ficha->id) }}">

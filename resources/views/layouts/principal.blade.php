@@ -90,8 +90,12 @@
             </li>
             <hr class="sidebar-divider">
             @endLoggedAL()
-            @LoggedTL()
-            @endLoggedTL()
+            @LoggedTLyAD()
+            <div class="sidebar-heading">
+                Tutor Laboral
+            </div>
+            <hr class="sidebar-divider">
+            @endLoggedTLyAD()
             @LoggedTEyAD()
             <div class="sidebar-heading">
                 Tutor educativo
