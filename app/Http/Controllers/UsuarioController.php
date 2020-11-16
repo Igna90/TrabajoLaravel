@@ -17,9 +17,10 @@ class UsuarioController extends Controller
      */
     public function index()
     {
+
         $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
-
-
+        //$datos2['empresas'] = enterprise::where('deleted', 0)->paginate(10);
+       // $datos3['ciclos'] = cycle::where('deleted', 0)->paginate(10);
 
         return view('usuario.index', $datos);
     }
@@ -77,9 +78,10 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $usuario = User::findOrfail($id);
-        $empresas = enterprise::all();
+        $empresas = enterprise::all()->where('deleted', 0);
+        $ciclos = cycle::all()->where('deleted', 0);
+        return view('usuario.edit', compact('empresas', 'ciclos', 'usuario'));
 
-        return view('usuario.edit', compact('usuario', 'empresas'));
     }
 
     /**
@@ -94,9 +96,9 @@ class UsuarioController extends Controller
         $datosUsuario = request()->except(['_token', '_method']);
         User::where('id', '=', $id)->update($datosUsuario);
 
-        $usuario = User::findOrfail($id);
+        $datos['usuarios']=User::where('deleted', 0)->paginate(10);
+        return view('usuario.index', $datos);
 
-        return view('usuario.edit', compact('usuario'));
     }
 
     /**

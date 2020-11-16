@@ -25,9 +25,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('ciclo', 'CicloController');
 
     Route::resource('fichas', 'FichasController');
-    Route::resource('asistencia', 'AsistenciaController');
-   
-    Route::resource('tareas', 'TareasController');
+    
 });
 Route::group(['middleware' => 'student'], function () {
     Route::resource('fichas', 'FichasController');
