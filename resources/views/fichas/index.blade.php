@@ -15,8 +15,10 @@
             <th>Descripción</th>
             <th>Acciones</th>
         </thead>
+        
         <tbody>
-        @foreach($fichas as $ficha)
+        @LoggedAL()
+        @foreach($fichasAl as $ficha)
             <tr>
                 <td>{{$ficha-> date}}</td>
                 <td>{{$ficha-> description}}</td>
@@ -30,6 +32,22 @@
                 </td>
             </tr>
         @endforeach
+        @endLoggedAL
+        @LoggedAD()
+        @foreach($fichas as $ficha)
+            <tr>
+                <td>{{$ficha-> date}}</td>
+                <td>{{$ficha-> description}}</td>
+                <td>
+                <a href="{{ url('/fichas/'.$ficha->id.'/edit') }}" class="btn btn-info btn-icon-split text">editar</a>
+                <form method="post" action="{{url('/fichas/' .$ficha->id) }}">
+                {{csrf_field()}}
+                {{ method_field('DELETE')}}
+                <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger btn-icon-split">Borrar</button></form>
+                </td>
+            </tr>
+        @endforeach
+        @endLoggedAD
         </tbody>
     </table>
     {{$fichas->links()}}

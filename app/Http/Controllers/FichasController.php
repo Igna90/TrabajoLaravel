@@ -14,9 +14,10 @@ class FichasController extends Controller
      */
     public function index()
     {
-        $datos['fichas']=worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
+        $fichas=worksheet::where('deleted', 0)->paginate(10);
+        $fichasAl = worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
         
-        return view('fichas.index',$datos);
+        return view('fichas.index',compact('fichas', 'fichasAl'));
     }
 
     /**
