@@ -15,7 +15,7 @@
             <th>Descripción</th>
         </thead>
         <tbody>
-        @foreach($tareas as $tarea)
+        @forelse($tareas as $tarea)
             <tr>
                 <td>{{$tarea-> number}}</td>
                 <td>{{$tarea-> description}}</td>
@@ -28,7 +28,9 @@
                 <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger btn-icon-split">Borrar</button></form>
                 </td>
             </tr>
-        @endforeach
+            @empty
+            No hay usuarios disponibles
+        @endforelse
         </tbody>
     </table>
     {{$tareas->links()}}

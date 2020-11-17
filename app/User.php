@@ -30,4 +30,7 @@ class User extends Authenticatable
     public function enterprises(){
         return $this->belongsTo(enterprise::class, 'enterprise_id');
         }
+    public function cycles(){
+        return $this->belongsTo(cycle::class, 'cycle_id');
+        }
 }

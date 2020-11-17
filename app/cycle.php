@@ -11,4 +11,7 @@ class cycle extends Model
     protected $fillable = [
         'name', 'grade', 'year', 'deleted',
     ];
+    public function Users(){
+        return $this->hasMany(User::class);
+        }
 }

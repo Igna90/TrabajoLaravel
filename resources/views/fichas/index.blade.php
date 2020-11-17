@@ -11,6 +11,10 @@
     </div>
     <table class="table table-bordered">
         @LoggedAL()
+<<<<<<< Updated upstream
+=======
+        @forelse($fichasAl as $ficha)
+>>>>>>> Stashed changes
         <thead>
             <th>Fecha</th>
             <th>Descripción</th>
@@ -30,9 +34,15 @@
                 <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger btn-icon-split">Borrar</button></form>
                 </td>
             </tr>
-        @endforeach
+            @empty
+            No hay usuarios disponibles
+        @endforelse
         @endLoggedAL
         @LoggedAD()
+<<<<<<< Updated upstream
+=======
+        @forelse($fichas as $ficha)
+>>>>>>> Stashed changes
         <thead>
             <th>Fecha</th>
             <th>Descripción</th>
@@ -53,7 +63,9 @@
                 <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger btn-icon-split">Borrar</button></form>
                 </td>
             </tr>
-        @endforeach
+            @empty
+            No hay usuarios disponibles
+        @endforelse
         @endLoggedAD
         </tbody>
     </table>

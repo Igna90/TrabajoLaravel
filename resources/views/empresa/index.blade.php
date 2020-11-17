@@ -1,6 +1,10 @@
 
 @extends('layouts.principal')
+@section('title')
+<title>Empresas</title>
+@stop
 @section('content')
+
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Empresas</h1>
@@ -18,7 +22,7 @@
 
     <tbody>
 
-        @foreach($empresas as $empresa)
+        @forelse($empresas as $empresa)
         <tr>
            
             <td>{{ $empresa->name}} </td>
@@ -34,7 +38,9 @@
             <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');"class="btn btn-danger btn-icon-split">Borrar</button ></form>
             </td>
         </tr>
-        @endforeach
+        @empty
+            No hay usuarios disponibles
+        @endforelse
 </tbody>
 </table>
 {{$empresas->links()}}

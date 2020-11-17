@@ -1,5 +1,8 @@
 
 @extends('layouts.principal')
+@section('title')
+<title>Ciclos</title>
+@stop
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -19,7 +22,7 @@
 
     <tbody>
 
-        @foreach($ciclos as $ciclo)
+        @forelse($ciclos as $ciclo)
         <tr>
            
             <td>{{ $ciclo->name}} </td>
@@ -36,7 +39,9 @@
             <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');"class="btn btn-danger btn-icon-split">Borrar</button ></form>
             </td>
         </tr>
-        @endforeach
+        @empty
+            No hay usuarios disponibles
+        @endforelse
 </tbody>
 </table>
 {{$ciclos->links()}}

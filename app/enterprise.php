@@ -15,6 +15,7 @@ class enterprise extends Model
     public function belongs(){
         return $this->hasMany(belong::class);
         }
+        
     
     public function Users(){
         return $this->hasMany(User::class);

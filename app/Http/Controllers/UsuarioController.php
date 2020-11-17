@@ -18,6 +18,14 @@ class UsuarioController extends Controller
     public function index()
     {
 
+        // $datos['usuarios'] = User::join->('enterprise', 'enterprise.id', '=', 'user.enterprise_id')->where('deleted', 0)->paginate(10);
+       
+        // $datos['empresas'] = enterprise::select('users.name', 'enterprises.name')
+        // ->join('users', 'enterprises.id', '=', 'users.enterprise_id')
+        // ->get();
+        // return $data;
+
+
         $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
 
         return view('usuario.index', $datos);
@@ -34,6 +42,7 @@ class UsuarioController extends Controller
         $empresas = enterprise::all()->where('deleted', 0);
 
         $ciclos = cycle::all()->where('deleted', 0);
+
         return view('usuario.create', compact('empresas', 'ciclos'));
     }
 
