@@ -23,9 +23,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('usuario', 'UsuarioController');
     Route::resource('empresa', 'EmpresaController');
     Route::resource('ciclo', 'CicloController');
+    Route::resource('modulo', 'ModuloController');
+
 
     Route::resource('fichas', 'FichasController');
-    
+    Route::get('/home', 'modulosController@index')->name('home');
+
 });
 Route::group(['middleware' => 'student'], function () {
     Route::resource('fichas', 'FichasController');
@@ -35,7 +38,11 @@ Route::group(['middleware' => 'tl'], function () {
 });
 Route::group(['middleware' => 'te'], function () {
     Route::resource('tareas', 'TareasController');
+    Route::get('/home', 'modulosController@index')->name('home');
 });
+
 // Borrar
 Route::resource('admin','AdminController');
 Route::get('/home', 'HomeController@index')->name('home');
+
+
