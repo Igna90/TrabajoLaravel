@@ -50,9 +50,10 @@
             @else
             <a class="nav-link" href="{{ route('login') }}">
                 <div class="sidebar-heading">
-                    Inicia sesión
+                    Iniciar sesión
                 </div>
             </a>
+            <hr class="sidebar-divider">
             @endLogged()
             @LoggedAD()
             <div class="sidebar-heading">
@@ -161,13 +162,13 @@
                         </li>
                         @Logged()
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Desloguearse</span>
                             </a>
                         </li>
                         @else
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="{{ route('login') }}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ route('login') }}">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Registrarse</span>
                             </a>
                         </li>
@@ -185,21 +186,21 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Perfil
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Desloguearse
                                 </a>
                         </li>
                         @else
-                        <a class="nav-link dropdown-toggle" href="{{ route('login') }}" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Inicia sesión</span>
-                        </a>
-                        @endLogged()
+                        
                     </ul>
-
+                    <a class="nav-link" href="{{ url('login') }}" id="userDropdown">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">Inicia sesión</span>
+                    </a>
+                    @endLogged()
                 </nav>
                 <!-- End of Topbar -->
 
@@ -234,15 +235,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Listo para salir?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pulsa en el botón desloguearse para cerrar tu sesión actual.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Desloguearse</a>
                 </div>
             </div>
         </div>
