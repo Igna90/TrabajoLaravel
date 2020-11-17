@@ -29,21 +29,23 @@
             <td>{{ $ciclo->grade}}</td>
             <td>{{ $ciclo->year}}</td>
             <td>
-             <a href="{{ url('/ciclo/' .$ciclo->id.'/edit') }}" class="btn btn-info btn-icon-split text">
+            <a href="{{ url('/ciclo/' .$ciclo->id.'/edit') }}" class="btn btn-info btn-icon-split" role="button">
              Editar
              </a>
                 
             <form method="post" action="{{ url('/ciclo/' .$ciclo->id) }}">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
-            <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');"class="btn btn-danger btn-icon-split">Borrar</button ></form>
+            <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');"class="btn btn-danger btn-icon-split" role="button">Borrar</button ></form>
             </td>
         </tr>
+
         @empty
             No hay usuarios disponibles
         @endforelse
 </tbody>
 </table>
+
 {{$ciclos->links()}}
         <a href="{{ url('/ciclo/create') }}" class="btn btn-primary">
         <span class="text">Crear</span>
