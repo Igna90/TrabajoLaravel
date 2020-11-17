@@ -9,7 +9,7 @@
         <a href="{{url('/')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-download fa-sm text-white-50"></i> Volver</a>
     </div>
-    @if({{ $asistencias->last()->created_at->format("W") }} === {{ date('W')}})
+    @if({{ $asistencias->last()->created_at->format("W") }} !== {{ date('W')}})
         <a href="{{ url('/asistencia/create') }}" class="btn btn-primary">
             <span class="text">Crear asistencia esta semana</span>
         </a>

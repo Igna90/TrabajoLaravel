@@ -11,13 +11,12 @@
     </div>
     <table class="table table-bordered">
         @LoggedAL()
-        @foreach($fichasAl as $ficha)
         <thead>
             <th>Fecha</th>
             <th>Descripción</th>
             <th>Acciones</th>
         </thead>
-        
+        @foreach($fichasAl as $ficha)
         <tbody>
             <tr>
                 <td>{{$ficha-> date}}</td>
@@ -34,13 +33,13 @@
         @endforeach
         @endLoggedAL
         @LoggedAD()
-        @foreach($fichas as $ficha)
         <thead>
             <th>Fecha</th>
             <th>Descripción</th>
             <th>id alumno</th>
             <th>Acciones</th>
         </thead>
+        @foreach($fichas as $ficha)
         <tbody>
             <tr>
                 <td>{{$ficha-> date}}</td>
