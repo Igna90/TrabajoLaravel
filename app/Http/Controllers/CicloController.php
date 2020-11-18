@@ -85,9 +85,10 @@ class CicloController extends Controller
         $datosCiclo=request()->except(['_token','_method']);
         cycle::where('id','=',$id)->update($datosCiclo);
 
-        $ciclo = cycle::findOrfail($id);
+       
+        $datosCiclo['ciclos']=cycle::where('deleted', 0)->paginate(10);
+        return view ('ciclo.index', $datosCiclo);
 
-        return view ('ciclo.edit', compact('ciclo'));
 
     }
 

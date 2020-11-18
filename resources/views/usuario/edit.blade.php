@@ -1,13 +1,13 @@
 @extends('layouts.principal')
 @section('title')
+
 <title>Usuarios</title>
 @stop
+@section('page-header')
+<h1 class="h3 mb-0 text-gray-800">Editar usuario</h1>
+@endsection
 @section('content')
 <div class="container-fluid">
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Editar usuarios</h1>
-        <a href="{{url('usuario')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Volver</a>
-    </div>
     <form action="{{ url('/usuario/' .$usuario->id) }}" method="post">
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
@@ -22,7 +22,11 @@
         <br />
         <br />
         <label for="firstname">{{'Apellido'}}</label>
-        <input type="text" name="firstname" id="firstname" value="{{$usuario-> phone}}">
+        <input type="text" name="firstname" id="firstname" value="{{$usuario-> firstname}}">
+        <br />
+        <br />
+        <label for="firstname">{{'Telefono'}}</label>
+        <input type="text" name="phone" id="phone" value="{{$usuario-> phone}}">
         <br />
         <br />
         <label for="email">{{'Email del usuario'}}</label>
@@ -63,10 +67,9 @@
         <br />
         <br />
 
+        <input type="submit" value="Editar" class="btn btn-info">
 
-        <input type="submit" value="Editar">
-
-
+        <a href="{{url('usuario')}}" class="btn btn-primary"> Volver</a>
 
     </form>
 </div>

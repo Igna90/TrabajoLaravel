@@ -1,5 +1,6 @@
 @extends('layouts.principal')
 @section('title')
+
 <title>Empresas</title>
 @stop
 @section('page-header')
@@ -20,7 +21,6 @@
         <br />
         <input type="submit" value="Editar" class="btn btn-info">
         <a href="{{url('empresa')}}" class="btn btn-primary"> Volver</a>
-
     </form>
 </div>
 @stop

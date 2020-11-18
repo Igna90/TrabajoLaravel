@@ -2,29 +2,28 @@
 @section('title')
 <title>Ciclos</title>
 @stop
+@section('page-header')
+<h1 class="h3 mb-0 text-gray-800">Crear ciclo</h1>
+@endsection
 @section('content')
 <div class="container-fluid">
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Crear ciclo</h1>
-        <a href="{{url('ciclo')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Volver</a>
-    </div>
-    <form action="{{ url('/ciclo')}}" method="post">
+    <form action="{{ url('ciclo')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-
         <label for="name">{{'Nombre del ciclo'}}</label>
-        <input type="text" name="name" id="name" value="">
+        <input type="text" name="name" id="name">
         <br />
 
         <label for="grade">{{'Grado:'}}</label>
-        <input type="radio" name="grade" value="1"> 1º Curso
-        <input type="radio" name="grade" value="2"> 2º Curso
+        <input type="radio" name="grade" value="1º"> 1º Curso
+        <input type="radio" name="grade" value="2º"> 2º Curso
         <br />
 
         <label for="date">{{'Año'}}</label>
-        <input type="number" name="year" id="year" max="2021"  min="1910"/>
-        <br>
-
-        <input type="submit" value="Agregar" class="btn btn-primary">
-
+        <input type="date" name="year" id="year">
+        <br />
+        <br />
+        <input type="submit" value="Crear" class="btn btn-info">
+        <a href="{{url('ciclo')}}" class="btn btn-primary"> Volver</a>
     </form>
-    @stop
+</div>
+@stop

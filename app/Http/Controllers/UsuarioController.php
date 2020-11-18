@@ -18,14 +18,6 @@ class UsuarioController extends Controller
     public function index()
     {
 
-        // $datos['usuarios'] = User::join->('enterprise', 'enterprise.id', '=', 'user.enterprise_id')->where('deleted', 0)->paginate(10);
-       
-        // $datos['empresas'] = enterprise::select('users.name', 'enterprises.name')
-        // ->join('users', 'enterprises.id', '=', 'users.enterprise_id')
-        // ->get();
-        // return $data;
-
-
         $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
 
         return view('usuario.index', $datos);
@@ -39,9 +31,7 @@ class UsuarioController extends Controller
     public function create()
     {
 
-        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
-
-        return view('usuario.index', $datos);
+        return view('usuario.create');
     }
 
     /**
@@ -56,11 +46,9 @@ class UsuarioController extends Controller
 
         User::insert($datosUsuario);
 
-        $datos['usuario'] = User::where('deleted', 0)->paginate(10);
+        $datosUsuario['usuarios'] = User::where('deleted', 0)->paginate(10);
 
-        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
-
-        return view('usuario.index', $datos);
+        return view('usuario.index', $datosUsuario);
     }
 
     /**
@@ -101,8 +89,8 @@ class UsuarioController extends Controller
         $datosUsuario = request()->except(['_token', '_method']);
         User::where('id', '=', $id)->update($datosUsuario);
 
-        $datos['usuarios']=User::where('deleted', 0)->paginate(10);
-        return view('usuario.index', $datos);
+        $datosUsuario['usuarios']=User::where('deleted', 0)->paginate(10);
+        return view('usuario.index', $datosUsuario);
 
     }
 

@@ -82,9 +82,9 @@ class EmpresaController extends Controller
         $datosEmpresa=request()->except(['_token','_method']);
         enterprise::where('id','=',$id)->update($datosEmpresa);
 
-        $empresa = enterprise::findOrfail($id);
-
-        return view ('empresa.edit', compact('empresa'));
+       
+        $datosEmpresa['empresas']=enterprise::where('deleted', 0)->paginate(10);
+        return view ('empresa.index', $datosEmpresa);
 
     }
 

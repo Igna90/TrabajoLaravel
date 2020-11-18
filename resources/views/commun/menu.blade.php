@@ -17,4 +17,11 @@
             <span>Empresas</span>
         </a>
     </li>
+    <li>
+        <a href="{{url('ciclo')}}">
+            
+            <i class="fa fa-dashboard"></i>
+            <span>Ciclos</span>
+        </a>
+    </li>
 </ul>
