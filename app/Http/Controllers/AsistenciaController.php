@@ -14,7 +14,7 @@ class AsistenciaController extends Controller
      */
     public function index()
     {
-        $asistencias['asistencias']=assistance::where('deleted', 0)->where('student_id', auth()->id())->orderBy('date', 'DESC')->paginate(10);
+        $asistencias['asistencias']=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
         
         return view('asistencia.index', $asistencias);
     }

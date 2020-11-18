@@ -39,11 +39,9 @@ class UsuarioController extends Controller
     public function create()
     {
 
-        $empresas = enterprise::all()->where('deleted', 0);
+        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
 
-        $ciclos = cycle::all()->where('deleted', 0);
-
-        return view('usuario.create', compact('empresas', 'ciclos'));
+        return view('usuario.index', $datos);
     }
 
     /**
