@@ -10,4 +10,11 @@
             <span>fichas</span>
         </a>
     </li>
+    <li>
+        <a href="{{url('empresa')}}">
+            
+            <i class="fa fa-dashboard"></i>
+            <span>Empresas</span>
+        </a>
+    </li>
 </ul>

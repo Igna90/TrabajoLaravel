@@ -2,15 +2,13 @@
 @section('title')
 <title>Empresas</title>
 @stop
+@section('page-header')
+<h1 class="h3 mb-0 text-gray-800">Crear empresa</h1>
+@endsection
 @section('content')
 <div class="container-fluid">
-<div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Crear empresa</h1>
-    <a href="{{url('empresa')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Volver</a>
-</div>
-<form action="{{ url('/empresa')}}" method="post">
+<form action="{{ url('empresa')}}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
-
     <label for="name">{{'Nombre de la empresa'}}</label>
     <input type="text" name="name" id="name" value="">
     <br />
@@ -20,7 +18,8 @@
     <br />
     <input type="submit" value="Agregar" class="btn btn-primary">
 
+   
 
-
+</div>
 </form>
 @stop
