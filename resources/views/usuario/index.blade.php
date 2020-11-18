@@ -40,15 +40,18 @@
                 <td>{{ $usuario->find($usuario->id)->enterprises->name}}</td>
                 <td>{{ $usuario->find($usuario->id)->cycles->name}} </td>
                 <td>
-                   
-                    <a href="{{ url('/usuario/' .$usuario->id.'/edit') }}" class="btn btn-info">
-                        Editar
-                    </a>
+                   <div class="text-center">
+                    <div class="btn-group">
+                        <a href="{{ url('/usuario/' .$usuario->id.'/edit') }}" class="btn btn-info">
+                            Editar
+                        </a>
 
-                    <form method="post" action="{{ url('/usuario/' .$usuario->id) }}">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger ">Borrar</button></form>
+                        <form method="post" action="{{ url('/usuario/' .$usuario->id) }}">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger">Borrar</button></form>
+                    </div>
+                   </div>
                 </td>
             </tr>
             @empty
@@ -57,10 +60,11 @@
         </tbody>
     </table>
     {{$usuarios->links()}}
-    </div>
-    
     <a href="{{ url('/usuario/create') }}" class="btn btn-primary">
         <span class="text">Crear</span>
     </a>
+    </div>
+    
+    
 </div>
 @stop
