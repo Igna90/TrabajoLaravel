@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\enterprise;
 use App\cycle;
 use App\User;
@@ -31,7 +30,11 @@ class UsuarioController extends Controller
     public function create()
     {
 
-        return view('usuario.create');
+        $empresas = enterprise::all()->where('deleted', 0);
+
+        $ciclos = cycle::all()->where('deleted', 0);
+
+        return view('usuario.create', compact('empresas', 'ciclos'));
     }
 
     /**
@@ -46,9 +49,9 @@ class UsuarioController extends Controller
 
         User::insert($datosUsuario);
 
-        $datosUsuario['usuarios'] = User::where('deleted', 0)->paginate(10);
+        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
 
-        return view('usuario.index', $datosUsuario);
+        return view('usuario.index', $datos);
     }
 
     /**
@@ -89,8 +92,8 @@ class UsuarioController extends Controller
         $datosUsuario = request()->except(['_token', '_method']);
         User::where('id', '=', $id)->update($datosUsuario);
 
-        $datosUsuario['usuarios']=User::where('deleted', 0)->paginate(10);
-        return view('usuario.index', $datosUsuario);
+        $datos['usuarios']=User::where('deleted', 0)->paginate(10);
+        return view('usuario.index', $datos);
 
     }
 

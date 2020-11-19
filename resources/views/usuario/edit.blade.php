@@ -1,6 +1,5 @@
 @extends('layouts.principal')
 @section('title')
-
 <title>Usuarios</title>
 @stop
 @section('page-header')
@@ -12,44 +11,39 @@
         {{ csrf_field() }}
         {{ method_field('PATCH') }}
 
-        <label for="id">{{'Id del usuario'}}</label>
-        <input type="text" name="id" id="id" value="{{$usuario-> id}}">
+        <label for="name">{{'Nombre'}}</label>
+        <input type="text" name="name" id="name" value="{{$usuario->name}}"/>
         <br />
-        <br />
-
-        <label for="name">{{'Nombre del usuario'}}</label>
-        <input type="text" name="name" id="name" value="{{$usuario-> name}}">
-        <br />
-        <br />
+        <br /> 
         <label for="firstname">{{'Apellido'}}</label>
-        <input type="text" name="firstname" id="firstname" value="{{$usuario-> firstname}}">
+        <input type="text" name="firstname" id="firstname" value="{{$usuario->firstname}}"/>
         <br />
         <br />
-        <label for="firstname">{{'Telefono'}}</label>
-        <input type="text" name="phone" id="phone" value="{{$usuario-> phone}}">
+        <label for="phone">{{'Telefono'}}</label>
+        <input type="text" name="phone" id="phone" value="{{$usuario->phone}}"/>
         <br />
         <br />
         <label for="email">{{'Email del usuario'}}</label>
-        <input type="text" name="email" id="email" value="{{$usuario-> email}}">
+        <input type="text" name="email" id="email" value="{{$usuario->email}}"/>
         <br />
         <br />
         <label for="email_verified_at">{{'Verificación email'}}</label>
-        <input type="text" name="email_verified_at" id="email_verified_at" value="{{$usuario-> email_verified_at}}">
+        <input type="text" name="email_verified_at" id="email_verified_at" value="{{$usuario->email_verified_at}}"/>
         <br />
         <br />
         <label for="password">{{'Contraseña del usuario'}}</label>
-        <input type="password" name="password" id="password" value="{{$usuario-> password}}">
+        <input type="password" name="password" id="password" value="{{$usuario->password}}"/>
         <br />
         <br />
         <label for="type">{{'Tipo de usuario:'}}</label>
-        <input type="radio" name="type" value="Alumno"> Alumno
-        <input type="radio" name="type" value="Tutor educativo"> Tutor educativo
+        <input type="radio" name="type" value="al"> Alumno
+        <input type="radio" name="type" value="te">Tutor educativo
         <br />
         <br />
 
 
-        <label for="">Empresas</label>
-        <select name="name" id="inputEmpresa_id">
+        <label for="enterprise_id">Empresas</label>
+        <select name="enterprise_id" id="inputEmpresa_id">
             @foreach($empresas as $empresa)
             <option value="{{ $empresa['id'] }}">{{ $empresa ['name'] }}</option>
             @endforeach

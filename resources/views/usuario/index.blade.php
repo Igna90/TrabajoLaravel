@@ -48,16 +48,16 @@ Empresas
                     <tbody>
 
                         @forelse( $usuarios as $usuario)
-                    <tbody>
+                    
                         <tr>
                             <td>{{ $usuario->name}}</td>
                             <td>{{ $usuario->firstname}} </td>
                             <td>{{ $usuario->phone}}</td>
-                            <td>{{ $usuario->email}} </td>
+                            <td>{{ $usuario->email}}</td>
                             <td>{{ $usuario->email_verified_at}}</td>
-                            <td>{{ $usuario->type}} </td>
+                            <td>{{ $usuario->type}}</td>
                             <td>{{ $usuario->find($usuario->id)->enterprises->name}}</td>
-                            <td>{{ $usuario->find($usuario->id)->cycles->name}} </td>
+                            <td>{{ $usuario->find($usuario->id)->cycles->name}}</td>
                             <td class="actions">
                                 <ul class="list-inline" style="margin-bottom:0px;">
                                     <li><a href="{{ url('/usuario/'.$usuario->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>
