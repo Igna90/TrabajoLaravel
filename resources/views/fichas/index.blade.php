@@ -41,8 +41,8 @@ Fichas
                         <th class="actions"></th>
                     </tr>
                 </tfoot>
-                @forelse($fichasAl as $ficha)
                 <tbody>
+                @forelse($fichasAl as $ficha)
                     <tr>
                         <td>{{$ficha-> date}}</td>
                         <td>{{$ficha-> description}}</td>
@@ -59,7 +59,7 @@ Fichas
                         </td>
                     </tr>
                     @empty
-            No hay usuarios disponibles
+          
             @endforelse
             @endLoggedAL()
             @LoggedAD()
@@ -78,8 +78,9 @@ Fichas
                         <th class="actions"></th>
                     </tr>
                 </tfoot>
-                @forelse($fichas as $ficha)
                 <tbody>
+                @forelse($fichas as $ficha)
+                
                     <tr>
                         <td>{{$ficha-> date}}</td>
                         <td>{{$ficha-> description}}</td>
@@ -97,7 +98,7 @@ Fichas
                         </td>
                     </tr>
                     @empty
-                    No hay usuarios disponibles
+                    
                     @endforelse
                     @endLoggedAD()
                 </tbody>

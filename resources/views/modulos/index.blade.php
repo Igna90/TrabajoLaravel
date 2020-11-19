@@ -41,8 +41,9 @@ Módulos
                         <th class="actions"></th>
                     </tr>
                 </tfoot>
-                @forelse($modulos as $modulo)
                 <tbody>
+                @forelse($modulos as $modulo)
+                
                     <tr>
                         <td>{{$modulo-> name}}</td>
                         <td>{{$modulo-> cycle_id}}</td>
@@ -59,7 +60,6 @@ Módulos
                         </td>
                     </tr>
                     @empty
-                        No hay usuarios disponibles
                 @endforelse
             @endLoggedTEyAD()
                 </tbody>

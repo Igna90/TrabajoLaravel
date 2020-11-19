@@ -68,5 +68,12 @@
             <span>Criterios</span>
         </a>
     </li>
+    <li>
+        <a href="{{ url('/usuario') }}">
+
+            <i class="fa fa-copyright"></i>
+            <span>Usuarios</span>
+        </a>
+    </li>
     @endLoggedTEyAD()
 </ul>

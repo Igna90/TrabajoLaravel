@@ -40,8 +40,8 @@ Tareas
                         <th class="actions"></th>
                     </tr>
                 </tfoot>
-                @forelse($tareas as $tarea)
                 <tbody>
+                @forelse($tareas as $tarea)
                     <tr>
                         <td>{{$tarea-> number}}</td>
                         <td>{{$tarea-> description}}</td>
@@ -58,7 +58,6 @@ Tareas
                         </td>
                     </tr>
                     @empty
-                        No hay tareas disponibles
                 @endforelse
             @endLoggedAD()
                 </tbody>

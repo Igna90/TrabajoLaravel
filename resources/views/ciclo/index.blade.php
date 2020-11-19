@@ -40,8 +40,8 @@ Ciclos
                             <th class="actions"></th>
                         </tr>
                     </tfoot>
-                        @forelse($ciclos as $ciclo)
                     <tbody>
+                        @forelse($ciclos as $ciclo)
                         <tr>
                             <td>{{ $ciclo->name}} </td>
                             <td>{{ $ciclo->grade}}</td>
@@ -59,7 +59,6 @@ Ciclos
                             </td>
                         </tr>
                         @empty
-                        No hay usuarios disponibles
                         @endforelse
                     </tbody>
                 </table>

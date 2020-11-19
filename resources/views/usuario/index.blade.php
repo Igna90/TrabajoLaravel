@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('title')
-Empresas
+Usuarios
 @stop
 @section('css')
 <style>
@@ -71,7 +71,6 @@ Empresas
                             </td>
                         </tr>
                         @empty
-                        No hay usuarios disponibles
                         @endforelse
                     </tbody>
                 </table>

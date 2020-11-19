@@ -40,9 +40,8 @@ Resultados
                         </tr>
                     </tfoot>
                     </thead>
-
-                    @forelse($resultados as $resultado)
                     <tbody>
+                    @forelse($resultados as $resultado)
                         <tr>
                             <td>{{$resultado-> number}}</td>
                             <td>{{$resultado-> description}}</td>
@@ -60,7 +59,6 @@ Resultados
                             </td>
                         </tr>
                         @empty
-                        No hay usuarios disponibles
                         @endforelse
                     </tbody>
                 </table>
