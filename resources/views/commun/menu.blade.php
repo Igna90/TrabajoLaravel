@@ -51,8 +51,21 @@
     <li>
         <a href="{{ url('/modulos') }}">
             
-            <i class="fa fa-calendar"></i>
+            <i class="fa fa-rebel"></i>
             <span>Módulos</span>
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('/resultados') }}">
+            <i class="fa fa-registered"></i>
+            <span>Resultados de aprendizaje</span>
+        </a>
+    </li>
+    <li>
+        <a href="{{ url('/criterios') }}">
+            
+            <i class="fa fa-copyright"></i>
+            <span>Criterios</span>
         </a>
     </li>
     @endLoggedTEyAD()
