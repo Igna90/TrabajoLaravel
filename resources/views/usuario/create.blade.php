@@ -11,10 +11,7 @@
     <form action="{{ url('usuario') }}" method="post">
         {{ csrf_field() }}
 
-        <label for="id">{{'Id del usuario'}}</label>
-        <input type="text" name="id" id="id">
-        <br />
-        <br />
+        
 
         <label for="name">{{'Nombre del usuario'}}</label>
         <input type="text" name="name" id="name">
@@ -45,10 +42,9 @@
         <input type="radio" name="type" value="Tutor educativo"> Tutor educativo
         <br />
         <br />
-
-
-        <label for="">Empresas</label>
-        <select name="name" id="inputEmpresa_id">
+        
+        <label for="enterprise_id">Empresas</label>
+        <select name="enterprise_id" id="enterprise_id">
             @foreach($empresas as $empresa)
             <option value="{{ $empresa['id'] }}">{{ $empresa ['name'] }}</option>
             @endforeach
