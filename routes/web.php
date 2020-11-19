@@ -35,6 +35,7 @@ Route::group(['middleware' => 'tl'], function () {
 });
 Route::group(['middleware' => 'te'], function () {
     Route::resource('tareas', 'TareasController');
+    Route::resource('modulos', 'ModulosController');
 });
 // Borrar
 Route::resource('admin','AdminController');
