@@ -1,26 +1,28 @@
 @extends('layouts.principal')
 @section('title')
-<title>Crear RRA</title>
+<title>Resultados por aprendizaje</title>
 @stop
+@section('page-header')
+<h1 class="h3 mb-0 text-gray-800">Crear RRA</h1>
+@endsection
 @section('content')
 <div class="container-fluid">
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Crear RRA</h1>
-        <a href="{{url('resultados')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Volver</a>
-    </div>
-    <form action="{{ url('resultados')}}" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
+    <form action="{{ url('resultados') }}" method="post" enctype="multipart/form-data">
+        {{ csrf_field() }}
         <label for="number">{{'Número'}}</label>
-        <input type="text" name="number" id="number"/>
-        <br>
+        <input type="text" name="number" id="number" value=""/>
+        <br />
+        <br />
         <label for="description">{{'Descripción'}}</label>
         <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
-        <br>
+        <br />
+        <br />
         <label for="number">{{'Modulo'}}</label>
-        <input type="text" name="module_id" id="module_id"/>
-        <br>
-        <input type="submit" value="Agregar" class="btn btn-primary">
+        <input type="text" name="module_id" id="module_id" value=""/>
+        <br />
+        <br />
+        <input type="submit" value="Crear" class="btn btn-info">
+        <a href="{{url('resultados')}}" class="btn btn-primary"> Volver</a>
     </form>
 </div>
 @stop
