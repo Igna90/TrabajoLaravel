@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\cycle;
 use App\task;
 use App\module;
 
@@ -28,7 +29,8 @@ class ModulosController extends Controller
      */
     public function create()
     {
-        return view('modulos.create');
+        $ciclos = cycle::all()->where('deleted', 0);
+        return view('modulos.create', compact('ciclos'));
     }
 
     /**
@@ -68,8 +70,9 @@ class ModulosController extends Controller
     public function edit($id)
     {
         $modulo = module::findOrFail($id);
-
-        return view('modulos.edit', compact('modulo'));
+        $ciclos = cycle::all()->where('deleted', 0);
+        $cicloedit = cycle::findOrFail($modulo->cycle_id);
+        return view('modulos.edit', compact('modulo', 'ciclos', 'cicloedit'));
     }
 
     /**

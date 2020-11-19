@@ -59,6 +59,7 @@ Fichas
                         </td>
                     </tr>
                     @empty
+          
             @endforelse
             @endLoggedAL()
             @LoggedAD()
@@ -97,6 +98,7 @@ Fichas
                         </td>
                     </tr>
                     @empty
+                    
                     @endforelse
                     @endLoggedAD()
                 </tbody>

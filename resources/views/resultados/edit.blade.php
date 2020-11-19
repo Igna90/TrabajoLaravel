@@ -4,7 +4,7 @@
 <title>Resultados por aprendizaje</title>
 @stop
 @section('page-header')
-<h1 class="h3 mb-0 text-gray-800">Editar RRA {{$resultado->created_at->format("W")}}</h1>
+<h1 class="h3 mb-0 text-gray-800">Crear resultado por aprendizaje</h1>
 @endsection
 @section('content')
 <div class="container-fluid">

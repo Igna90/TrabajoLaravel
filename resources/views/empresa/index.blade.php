@@ -39,8 +39,9 @@ Empresas
                             <th class="actions"></th>
                         </tr>
                     </tfoot>
-                        @forelse($empresas as $empresa)
                     <tbody>
+                        @forelse($empresas as $empresa)
+                    
                         <tr>
 
                             <td>{{ $empresa->name}} </td>
@@ -58,7 +59,6 @@ Empresas
                             </td>
                         </tr>
                         @empty
-                        No hay usuarios disponibles
                         @endforelse
                     </tbody>
                 </table>
@@ -86,8 +86,3 @@ Empresas
   @stop
 
 
-<!-- {{$empresas->links()}}
-<a href="{{ url('/empresa/create') }}" class="btn btn-primary" role="button">
-    <span class="text">Crear</span>
-</a>
-</div> -->
