@@ -12,8 +12,13 @@ Crear modulo
         <label for="name">{{'name'}}</label>
         <input type="text" name="name" id="name"/>
         <br>
-        <label for="cycle_id">{{'cycle_id'}}</label>
-        <input name="cycle_id" id="cycle_id" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></input>
+        <label for="cycle_id">Elige un ciclo para el alumno</label>
+        <select name="cycle_id" id="cycle_id">
+            <option value="">--Escoja el ciclo--</option>
+            @foreach($ciclos as $ciclo)
+            <option value="{{ $ciclo['id'] }}">{{ $ciclo ['name'] }}</option>
+            @endforeach
+        </select>
         <br>
         <br>
         <input type="submit" value="Agregar" class="btn btn-info">
