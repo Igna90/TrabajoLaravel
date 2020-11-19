@@ -16,13 +16,12 @@ Crear ficha
                 <form action="{{ url('fichas')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for="date">{{'Fecha'}}</label>
-                    <input type="date" name="date" id="date" required/>
+                    <input type="date" name="date" id="date" required />
                     <br>
                     <label for="description">{{'Descripción'}}</label>
                     <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required></textarea>
                     <br>
                     <br>
-
             </div>
             <div class="box-footer">
                 <input type="submit" value="Agregar" class="btn btn-info">
