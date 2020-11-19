@@ -57,6 +57,7 @@
     </li>
     <li>
         <a href="{{ url('/resultados') }}">
+<<<<<<< Updated upstream
             <i class="fa fa-registered"></i>
             <span>Resultados de aprendizaje</span>
         </a>
@@ -66,6 +67,11 @@
             
             <i class="fa fa-copyright"></i>
             <span>Criterios</span>
+=======
+            
+            <i class="fa fa-calendar"></i>
+            <span>Resultados</span>
+>>>>>>> Stashed changes
         </a>
     </li>
     @endLoggedTEyAD()
