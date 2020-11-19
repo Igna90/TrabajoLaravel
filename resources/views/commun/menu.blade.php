@@ -2,40 +2,58 @@
 <?php $route = (isset($r['as'])) ? $r['as'] : ''; ?>
 
 <ul class="sidebar-menu">
+    @Logged()
     <li class="header">MENU</li>
+    @endLogged()
 
-    <li>
-        <a href="{{url('fichas')}}">
-            <i class="fa fa-dashboard"></i>
-            <span>fichas</span>
-        </a>
-    </li>
+    @LoggedAD()
     <li>
         <a href="{{url('empresa')}}">
             
-            <i class="fa fa-dashboard"></i>
+            <i class="fa fa-building"></i>
             <span>Empresas</span>
         </a>
     </li>
     <li>
         <a href="{{url('ciclo')}}">
             
-            <i class="fa fa-dashboard"></i>
+            <i class="fa fa-circle"></i>
             <span>Ciclos</span>
+        </a>
+    </li>
+    @endLoggedAD()
+    @LoggedALyAD()
+    <li>
+        <a href="{{ url('/fichas') }}">
+            
+            <i class="fa fa-file"></i>
+            <span>Fichas de Seguimiento</span>
         </a>
     </li>
     <li>
-        <a href="{{url('ciclo')}}">
+        <a href="{{ url('/asistencia') }}">
             
-            <i class="fa fa-dashboard"></i>
-            <span>Ciclos</span>
+            <i class="fa fa-calendar"></i>
+            <span>Asistencia</span>
+        </a>
+    </li>
+    @endLoggedAL()
+    @LoggedTLyAD()
+    @endLoggedTLyAD()
+    @LoggedTEyAD()
+    <li>
+        <a href="{{ url('/tareas') }}">
+            
+            <i class="fa fa-book"></i>
+            <span>Tareas</span>
         </a>
     </li>
     <li>
-        <a href="{{url('ciclo')}}">
+        <a href="{{ url('/modulos') }}">
             
-            <i class="fa fa-dashboard"></i>
-            <span>Ciclos</span>
+            <i class="fa fa-calendar"></i>
+            <span>Módulos</span>
         </a>
     </li>
+    @endLoggedTEyAD()
 </ul>
