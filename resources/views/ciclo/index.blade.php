@@ -40,8 +40,6 @@ Ciclos
                             <th class="actions"></th>
                         </tr>
                     </tfoot>
-                    <tbody>
-
                         @forelse($ciclos as $ciclo)
                     <tbody>
                         <tr>

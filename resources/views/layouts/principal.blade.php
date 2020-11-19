@@ -36,7 +36,7 @@
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only"></span>
                 </a>
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
@@ -49,6 +49,9 @@
                                 <!-- The -xs hides the username on small devices so only the image appears. -->
                                 @Logged()
                                 {{ auth()->user()->name }}</span>&nbsp
+                                <span class="caret"></span>
+                                @else
+                                &nbsp
                                 <span class="caret"></span>
                                 @endLogged()
                             </a>
@@ -74,8 +77,15 @@
                                 </li>
                                 @else
                                     <p>
-                                        Inicia sesión <br/>
+                                        Debes iniciar sesión
+                                        para tener acceso a todo el contenido <br/>
                                     </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer" style="height:75px;padding-top:20px;">
+                                    <div style="text-align:center">
+                                        <a href="{{ url('login') }}" class="btn btn-info btn-flat" >Iniciar sesión</a>
+                                    </div>
                                 </li>
                                 @endLogged()
 
@@ -100,11 +110,11 @@
                   <div class="pull-left info">
                   @Logged()
                     <p class="user-panel-name">{{ Auth::user()->name }} </p>
-                    @endLogged()
+                    @else
                     <p>
-                      <small ><a href="{{ route('logout', auth()->id()) }}"><i class="fa fa-sign-out"></i> <span>Logout</span></a></small>
+                      <small ><a href="{{ route('logout', auth()->id()) }}"> <span>Inicia sesión</span></a></small>
                     </p>
-
+                    @endLogged()
                   </div>
                 </div>
 

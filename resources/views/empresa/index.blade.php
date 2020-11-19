@@ -39,8 +39,6 @@ Empresas
                             <th class="actions"></th>
                         </tr>
                     </tfoot>
-                    <tbody>
-
                         @forelse($empresas as $empresa)
                     <tbody>
                         <tr>
