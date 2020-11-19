@@ -11,10 +11,10 @@ Ficha {{$ficha->id}}
     {{ csrf_field() }}
     {{method_field('PATCH')}}
         <label for="date">{{'Fecha'}}</label>
-        <input type="date" name="date" id="date" value="{{$ficha->date}}"/>
+        <input type="date" name="date" id="date" value="{{$ficha->date}}" required/>
         <br>
         <label for="description">{{'Descripción'}}</label>
-        <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40">{{$ficha->description}}</textarea>
+        <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required>{{$ficha->description}}</textarea>
         <br>
         <br>
         <input type="submit" value="Editar" class="btn btn-info">

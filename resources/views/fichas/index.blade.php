@@ -41,8 +41,8 @@ Fichas
                         <th class="actions"></th>
                     </tr>
                 </tfoot>
-                @forelse($fichasAl as $ficha)
                 <tbody>
+                @forelse($fichasAl as $ficha)
                     <tr>
                         <td>{{$ficha-> date}}</td>
                         <td>{{$ficha-> description}}</td>
@@ -59,7 +59,6 @@ Fichas
                         </td>
                     </tr>
                     @empty
-            No hay usuarios disponibles
             @endforelse
             @endLoggedAL()
             @LoggedAD()
@@ -67,7 +66,7 @@ Fichas
                     <tr>
                         <th>Fecha</th>
                         <th>Descripción</th>
-                        <th>id alumno</th>
+                        <th>Nombre alumno</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -78,12 +77,13 @@ Fichas
                         <th class="actions"></th>
                     </tr>
                 </tfoot>
-                @forelse($fichas as $ficha)
                 <tbody>
+                @forelse($fichas as $ficha)
+                
                     <tr>
                         <td>{{$ficha-> date}}</td>
                         <td>{{$ficha-> description}}</td>
-                        <td>{{$ficha-> student_id}}</td>
+                        <td>{{$ficha->find($ficha->student_id)->Users->name}}</td>
                         <td class="actions">
                             <ul class="list-inline" style="margin-bottom:0px;">
                             <li><a href="{{ url('/fichas/'.$ficha->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>
@@ -97,7 +97,6 @@ Fichas
                         </td>
                     </tr>
                     @empty
-                    No hay usuarios disponibles
                     @endforelse
                     @endLoggedAD()
                 </tbody>
