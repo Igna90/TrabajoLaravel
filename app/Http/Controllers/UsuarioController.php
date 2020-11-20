@@ -45,7 +45,34 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'last_name' => 'required',
+        //     'username'=> 'required',
+        //     'rol'=> 'required',
+        //     'status' => 'required',
+        //     'email'=> 'required|unique:users',
+        //     'password'=> 'required',
+        // ]);
+    
+        // $user = new App\User();
+        // $user->name = $request->name;
+        // $user->last_name = $request->last_name;
+        // $user->username = $request->username;
+        // $user->rol = $request->rol;
+        // $user->status = $request->status;
+        // $user->email = $request->email;
+        // $user->password = bcrypt($request->password); // Se encripta la contraseña usando la función bcrypt().
+        // $user->save(); // Se guarda el registro en la base de datos.
+    
+        // return redirect()->route('users.index')
+        //                  ->with('success','User created successfully.');
+    // }
         $datosUsuario = request()->except('_token');
+
+        User::insert(['password'=>bcrypt(request()->password)]);
 
         User::insert($datosUsuario);
 
