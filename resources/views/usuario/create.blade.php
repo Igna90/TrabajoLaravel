@@ -38,8 +38,8 @@
         <br />
         <br />
         <label for="type">{{'Tipo de usuario:'}}</label>
-        <input type="radio" name="type" value="Alumno"> Alumno
-        <input type="radio" name="type" value="Tutor educativo"> Tutor educativo
+        <input type="radio" name="type" value="al"> Alumno
+        <input type="radio" name="type" value="te"> Tutor educativo
         <br />
         <br />
         
