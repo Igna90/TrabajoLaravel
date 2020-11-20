@@ -45,39 +45,10 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'last_name' => 'required',
-        //     'username'=> 'required',
-        //     'rol'=> 'required',
-        //     'status' => 'required',
-        //     'email'=> 'required|unique:users',
-        //     'password'=> 'required',
-        // ]);
-    
-        // $user = new App\User();
-        // $user->name = $request->name;
-        // $user->last_name = $request->last_name;
-        // $user->username = $request->username;
-        // $user->rol = $request->rol;
-        // $user->status = $request->status;
-        // $user->email = $request->email;
-        // $user->password = bcrypt($request->password); // Se encripta la contraseña usando la función bcrypt().
-        // $user->save(); // Se guarda el registro en la base de datos.
-    
-        // return redirect()->route('users.index')
-        //                  ->with('success','User created successfully.');
-    // }
         $datosUsuario = request()->except('_token');
-
         User::insert(['password'=>bcrypt(request()->password)]);
-
         User::insert($datosUsuario);
-
         $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
-
         return view('usuario.index', $datos);
     }
 
@@ -118,10 +89,7 @@ class UsuarioController extends Controller
     {
         $datosUsuario = request()->except(['_token', '_method']);
         User::where('id', '=', $id)->update($datosUsuario);
-
-        $datos['usuarios']=User::where('deleted', 0)->paginate(10);
-        return view('usuario.index', $datos);
-
+        return redirect('usuario');
     }
 
     /**
@@ -134,7 +102,6 @@ class UsuarioController extends Controller
     {
         $valor = User::where('id', $id);
         $valor->increment('deleted');
-        $datos['usuarios'] = User::where('deleted', 0)->paginate(10);
-        return view('usuario.index', $datos);
+        return redirect('usuario');
     }
 }

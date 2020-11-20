@@ -15,7 +15,6 @@ class EmpresaController extends Controller
     public function index()
     {
         $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
-        
         return view('empresa.index',$datos);
     }
 
@@ -38,12 +37,8 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         $datosEmpresa=request()->except('_token');
-
         enterprise::insert($datosEmpresa);
-
-        $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
-
-        return view('empresa.index',$datos);
+        return redirect('empresa');
     }
 
     /**
@@ -81,11 +76,7 @@ class EmpresaController extends Controller
     {
         $datosEmpresa=request()->except(['_token','_method']);
         enterprise::where('id','=',$id)->update($datosEmpresa);
-
-       
-        $datosEmpresa['empresas']=enterprise::where('deleted', 0)->paginate(10);
-        return view ('empresa.index', $datosEmpresa);
-
+        return redirect('empresa');
     }
 
     /**
@@ -99,6 +90,6 @@ class EmpresaController extends Controller
         $valor = enterprise::where('id', $id);
         $valor -> increment('deleted');
         $datos['empresas']=enterprise::where('deleted', 0)->paginate(10);
-         return view('empresa.index',$datos);
+        return redirect('empresa');
     }
 }

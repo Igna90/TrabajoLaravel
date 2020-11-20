@@ -39,12 +39,8 @@ class TareasController extends Controller
     public function store(Request $request)
     {
         $datosTarea=request()->except('_token');
-
         task::insert($datosTarea);
-
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
-        
-        return view('tareas.index',$datos);
+        return redirect('tareas');
     }
 
     /**
@@ -82,9 +78,7 @@ class TareasController extends Controller
     {
         $datos=request()->except(['_token', '_method']);
         task::where('id','=',$id)->update($datos);
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
-        
-        return view('tareas.index',$datos);
+        return redirect('tareas');
     }
 
     /**

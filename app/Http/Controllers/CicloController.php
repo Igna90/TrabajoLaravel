@@ -15,7 +15,6 @@ class CicloController extends Controller
     public function index()
     {
         $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
-        
         return view('ciclo.index',$datos);
     }
 
@@ -38,15 +37,8 @@ class CicloController extends Controller
     public function store(Request $request)
     {
         $datosCiclo=request()->except('_token');
-
         cycle::insert($datosCiclo);
-
-        $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
-
-    
-         return view('ciclo.index',$datos);
-
-        
+        return redirect('ciclo');
     }
 
     /**
@@ -69,7 +61,6 @@ class CicloController extends Controller
     public function edit($id)
     {
         $ciclo = cycle::findOrfail($id);
-
         return view ('ciclo.edit', compact('ciclo'));
     }
 
@@ -84,8 +75,6 @@ class CicloController extends Controller
     {
         $datosCiclo=request()->except(['_token','_method']);
         cycle::where('id','=',$id)->update($datosCiclo);
-
-       
         $datosCiclo['ciclos']=cycle::where('deleted', 0)->paginate(10);
         return view ('ciclo.index', $datosCiclo);
 
@@ -103,6 +92,6 @@ class CicloController extends Controller
         $valor = cycle::where('id', $id);
         $valor -> increment('deleted');
         $datos['ciclos']=cycle::where('deleted', 0)->paginate(10);
-         return view('ciclo.index',$datos);
+        return view('ciclo.index',$datos);
     }
 }

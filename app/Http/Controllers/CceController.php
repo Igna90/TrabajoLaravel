@@ -17,7 +17,6 @@ class CceController extends Controller
     public function index()
     {
         $datos['criterios']=ce::where('deleted', 0)->paginate(10);
-        
         return view('criterios.index',$datos);
     }
 
@@ -40,12 +39,8 @@ class CceController extends Controller
     public function store(Request $request)
     {
         $datosTarea=request()->except('_token');
-
         ce::insert($datosTarea);
-
-        $datos['criterios']=ce::where('deleted', 0)->paginate(10);
-        
-        return view('criterios.index',$datos);
+        return redirect('criterios');
     }
 
     /**
@@ -68,7 +63,6 @@ class CceController extends Controller
     public function edit($id)
     {
         $criterio = ce::findOrFail($id);
-
         return view('criterios.edit', compact('criterio'));
     }
 
@@ -83,9 +77,7 @@ class CceController extends Controller
     {
         $datos=request()->except(['_token', '_method']);
         ce::where('id','=',$id)->update($datos);
-        $datos['criterios']=ce::where('deleted', 0)->paginate(10);
-        
-        return view('criterios.index',$datos);
+        return redirect('criterios');
     }
 
     /**
@@ -98,7 +90,6 @@ class CceController extends Controller
     {
         $valor = ce::where('id', $id);
         $valor -> increment('deleted');
-        $datos['criterios']=ce::where('deleted', 0)->paginate(10);
-        return view('criterios.index',$datos);
+        return redirect('criterios');
     }
 }

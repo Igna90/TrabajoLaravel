@@ -14,7 +14,7 @@
     <br />
     <br />
     <label for="email">{{'Email de la empresa'}}</label>
-    <textarea  name="email" id="email" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
+    <input type="email"  name="email" id="email" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></input>
     <br />
     <input type="submit" value="Agregar" class="btn btn-primary">
 

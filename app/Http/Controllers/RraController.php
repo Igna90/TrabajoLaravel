@@ -17,7 +17,6 @@ class RraController extends Controller
     public function index()
     {
         $datos['resultados']=ra::where('deleted', 0)->paginate(10);
-        
         return view('resultados.index',$datos);
     }
 
@@ -40,12 +39,8 @@ class RraController extends Controller
     public function store(Request $request)
     {
         $datosTarea=request()->except('_token');
-
         ra::insert($datosTarea);
-
-        $datos['resultados']=ra::where('deleted', 0)->paginate(10);
-        
-        return view('resultados.index',$datos);
+        return redirect('resultados');
     }
 
     /**
@@ -83,9 +78,7 @@ class RraController extends Controller
     {
         $datos=request()->except(['_token', '_method']);
         ra::where('id','=',$id)->update($datos);
-        $datos['resultados']=ra::where('deleted', 0)->paginate(10);
-        
-        return view('resultados.index',$datos);
+        return redirect('resultados');
     }
 
     /**
@@ -98,7 +91,6 @@ class RraController extends Controller
     {
         $valor = ra::where('id', $id);
         $valor -> increment('deleted');
-        $datos['resultados']=ra::where('deleted', 0)->paginate(10);
-        return view('resultados.index',$datos);
+        return redirect('resultados');
     }
 }

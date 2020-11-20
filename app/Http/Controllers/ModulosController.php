@@ -18,7 +18,6 @@ class ModulosController extends Controller
     public function index()
     {
         $datos['modulos']=module::where('deleted', 0)->paginate(10);
-        
         return view('modulos.index',$datos);
     }
 
@@ -42,12 +41,8 @@ class ModulosController extends Controller
     public function store(Request $request)
     {
         $datosTarea=request()->except('_token');
-
         module::insert($datosTarea);
-
-        $datos['modulos']=module::where('deleted', 0)->paginate(10);
-        
-        return view('modulos.index',$datos);
+        return redirect('modulos');
     }
 
     /**
@@ -86,9 +81,7 @@ class ModulosController extends Controller
     {
         $datos=request()->except(['_token', '_method']);
         module::where('id','=',$id)->update($datos);
-        $datos['modulos']=module::where('deleted', 0)->paginate(10);
-        
-        return view('modulos.index',$datos);
+        return redirect('modulos');
     }
 
     /**
@@ -101,7 +94,6 @@ class ModulosController extends Controller
     {
         $valor = module::where('id', $id);
         $valor -> increment('deleted');
-        $datos['modulos']=module::where('deleted', 0)->paginate(10);
-        return view('modulos.index',$datos);
+        return redirect('modulos');
     }
 }

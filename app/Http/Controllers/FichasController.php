@@ -16,7 +16,6 @@ class FichasController extends Controller
     {
         $fichas=worksheet::where('deleted', 0)->paginate(10);
         $fichasAl = worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
-        
         return view('fichas.index',compact('fichas', 'fichasAl'));
     }
 
@@ -40,10 +39,7 @@ class FichasController extends Controller
     {
 
         worksheet::insert(['date'=>request()->date, 'description'=>request()->description , 'student_id'=> auth()->id()]);
-        $fichas=worksheet::where('deleted', 0)->paginate(10);
-        $fichasAl = worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
-        
-        return view('fichas.index',compact('fichas', 'fichasAl'));
+        return redirect('fichas');
     }
 
     /**
@@ -81,11 +77,7 @@ class FichasController extends Controller
     {
         $datos=request()->except(['_token', '_method']);
         worksheet::where('id','=',$id)->update($datos);
-
-        $fichas=worksheet::where('deleted', 0)->paginate(10);
-        $fichasAl = worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
-        
-        return view('fichas.index',compact('fichas', 'fichasAl'));
+        return redirect('fichas');
     }
 
     /**
@@ -98,10 +90,6 @@ class FichasController extends Controller
     {
         $valor = worksheet::where('id', $id);
         $valor -> increment('deleted');
-
-        $fichas=worksheet::where('deleted', 0)->paginate(10);
-        $fichasAl = worksheet::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
-        
-        return view('fichas.index',compact('fichas', 'fichasAl'));
+        return redirect('fichas');
     }
 }
