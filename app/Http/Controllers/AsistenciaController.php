@@ -39,12 +39,13 @@ class AsistenciaController extends Controller
     public function store(Request $request)
     {
         
-        assistance::insert(['date'=>date('Y-m-d H:i:s'), 'assistance'=>request()->assistance , 'student_id'=> auth()->id()]);
+        assistance::insert(['date'=>request()->date1, 'assistance'=>request()->assistance1 , 'student_id'=> auth()->id()]);
+        assistance::insert(['date'=>request()->date2, 'assistance'=>request()->assistance2 , 'student_id'=> auth()->id()]);
+        assistance::insert(['date'=>request()->date3, 'assistance'=>request()->assistance3 , 'student_id'=> auth()->id()]);
+        $asistencias=assistance::where('deleted', 0)->paginate(10);
+        $asistenciasAl=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
 
-        $asistencias['asistencias']=assistance::where('deleted', 0)->paginate(10);
-        $asistenciasAl['asistencias']=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
-
-        return view('asistencia.index', $asistenciasAl, $asistencias);
+        return view('asistencia.index', compact('asistencias', 'asistenciasAl'));
     }
 
     /**
@@ -80,7 +81,13 @@ class AsistenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $datos=request()->except(['_token', '_method']);
+        assistance::where('id','=',$id)->update($datos);
+
+        $asistencias=assistance::where('deleted', 0)->paginate(10);
+        $asistenciasAl=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
+
+        return view('asistencia.index', compact('asistencias', 'asistenciasAl'));
     }
 
     /**
@@ -91,6 +98,7 @@ class AsistenciaController extends Controller
      */
     public function destroy($id)
     {
-        
+        assistance::where('id','=',$id)->update('deleted', 1);
+        return back();
     }
 }

@@ -19,8 +19,8 @@ Ficha {{$asistencia->id}}
                     <label for="date">{{'Fecha'}}</label>
                     <input type="date" name="date" id="date" value="{{$asistencia->date}}" />
                     <br>
-                    <label for="description">{{'Descripción'}}</label>
-                    <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40">{{$asistencia->assistance}}</textarea>
+                    <label for="assistance">{{'Asistencia'}}</label>
+                    <textarea name="assistance" id="assistance" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40">{{$asistencia->assistance}}</textarea>
                     <br>
                     <br>
             </div>
