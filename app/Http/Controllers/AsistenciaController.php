@@ -27,6 +27,7 @@ class AsistenciaController extends Controller
      */
     public function create()
     {
+        
         return view('asistencia.create');
     }
 
