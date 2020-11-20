@@ -26,6 +26,7 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::resource('fichas', 'FichasController');
     
+    Route::get('/profile', 'ProfileController@index')->name('profile');
 });
 Route::group(['middleware' => 'student'], function () {
     Route::resource('fichas', 'FichasController');

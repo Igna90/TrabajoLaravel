@@ -59,12 +59,12 @@ Tareas
             @endforelse
             @endLoggedAD()
             @LoggedTE()
-          <thead>
-            <tr>
-              <th>Numero</th>
-              <th>Descripción</th>
-            </tr>
-          </thead>
+            <thead>
+              <tr>
+                <th>Numero</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
           <tfoot>
             <tr>
               <th></th>

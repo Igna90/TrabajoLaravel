@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('title')
-Página principal</title>
+Página principal
 @stop
 @section('page-header')
 <h1 class="h3 mb-0 text-gray-800">Gestión de formación profesional dual</h1>

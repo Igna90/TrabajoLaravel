@@ -19,7 +19,7 @@ Crear Asistencia
                     <input type="date" name="date1" id="date1" required />
                     <br>
                     <label for="assistance1">{{'Descripción'}}</label>
-                    <textarea name="assistance1" id="assistance1" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required></textarea>
+                    <textarea name="assistance1" id="assistance1" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
                     <br>
                     <br>
             </div>
@@ -35,7 +35,7 @@ Crear Asistencia
                     <input type="date" name="date2" id="date2" required />
                     <br>
                     <label for="assistance2">{{'Descripción'}}</label>
-                    <textarea name="assistance2" id="assistance2" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required></textarea>
+                    <textarea name="assistance2" id="assistance2" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
                     <br>
                     <br>
             </div>
@@ -51,7 +51,7 @@ Crear Asistencia
                     <input type="date" name="date3" id="date3" required />
                     <br>
                     <label for="assistance3">{{'Descripción'}}</label>
-                    <textarea name="assistance3" id="assistance3" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required></textarea>
+                    <textarea name="assistance3" id="assistance3" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
                     <br>
                     <br>
             </div>

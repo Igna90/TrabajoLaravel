@@ -67,11 +67,11 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer" style="height:75px;padding-top:20px;">
                                     <div class="pull-left">
-                                        <a href="{{ url('admin\profileedit', auth()->id()) }}" class="btn btn-info btn-flat" style="width:90px">Profile</a>
+                                        <a href="{{ url('profile') }}" class="btn btn-info btn-flat" style="width:120px">Mi perfil</a>
                                     </div>
                                     <div class="pull-right">
                                         {!! Form::open(['url'=>'logout']) !!}
-                                            <button type="submit" class="btn btn-danger btn-flat"  style="width:90px">Logout</button>
+                                            <button type="submit" class="btn btn-danger btn-flat"  style="width:120px">Desloguearse</button>
                                         {!! Form::close() !!}
                                     </div>
                                 </li>
