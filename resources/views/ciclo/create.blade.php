@@ -3,10 +3,14 @@
 <title>Ciclos</title>
 @stop
 @section('page-header')
-<h1 class="h3 mb-0 text-gray-800">Crear ciclo</h1>
 @endsection
 @section('content')
 <div class="container-fluid">
+    <div class="col-md-8">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3>Crear ciclo</h3>
+            </div>
     <form action="{{ url('ciclo')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <label for="name">{{'Nombre del ciclo'}}</label>
