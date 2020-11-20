@@ -14,9 +14,10 @@ class AsistenciaController extends Controller
      */
     public function index()
     {
-        $asistencias['asistencias']=assistance::where('deleted', 0)->paginate(10);
+        $asistencias=assistance::where('deleted', 0)->paginate(10);
+        $asistenciasAl=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
 
-        return view('asistencia.index', compact('asistencias'));
+        return view('asistencia.index', compact('asistencias', 'asistenciasAl'));
     }
 
     /**
@@ -40,10 +41,10 @@ class AsistenciaController extends Controller
         
         assistance::insert(['date'=>date('Y-m-d H:i:s'), 'assistance'=>request()->assistance , 'student_id'=> auth()->id()]);
 
-        $asistenciasAl['asistencias']=assistance::where('deleted', 0)->paginate(10);
+        $asistencias['asistencias']=assistance::where('deleted', 0)->paginate(10);
         $asistenciasAl['asistencias']=assistance::where('deleted', 0)->where('student_id', auth()->id())->paginate(10);
 
-        return view('asistencia.index', $asistenciasAL, $asistencias);
+        return view('asistencia.index', $asistenciasAl, $asistencias);
     }
 
     /**
@@ -65,7 +66,9 @@ class AsistenciaController extends Controller
      */
     public function edit($id)
     {
-        
+        $asistencia = assistance::findOrFail($id);
+
+        return view('asistencia.edit', compact('asistencia'));
     }
 
     /**

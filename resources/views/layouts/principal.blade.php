@@ -144,9 +144,6 @@
         <!-- Main Footer -->
         <footer class="main-footer">
             <!-- To the right -->
-            <div class="pull-right hidden-xs">
-                ver 0.0.1
-            </div>
             <!-- Default to the left -->
             <strong>Copyright &copy; {{ date('Y') }} 2ºDAM.</strong> All rights reserved.
         </footer>

@@ -7,17 +7,28 @@ Crear ficha
 @endsection
 @section('content')
 <div class="container-fluid">
-    <form action="{{ url('fichas')}}" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
-        <label for="date">{{'Fecha'}}</label>
-        <input type="date" name="date" id="date"/>
-        <br>
-        <label for="description">{{'Descripción'}}</label>
-        <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
-        <br>
-        <br>
-        <input type="submit" value="Agregar" class="btn btn-info">
-        <a href="{{url('fichas')}}" class="btn btn-primary"> Volver</a>
-    </form>
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Formulario de ficha</h3>
+            </div>
+            <div class="box-body">
+                <form action="{{ url('fichas')}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <label for="date">{{'Fecha'}}</label>
+                    <input type="date" name="date" id="date" required />
+                    <br>
+                    <label for="description">{{'Descripción'}}</label>
+                    <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required></textarea>
+                    <br>
+                    <br>
+            </div>
+            <div class="box-footer">
+                <input type="submit" value="Agregar" class="btn btn-info">
+                <a href="{{url('fichas')}}" class="btn btn-primary"> Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @stop

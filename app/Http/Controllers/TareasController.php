@@ -14,9 +14,10 @@ class TareasController extends Controller
      */
     public function index()
     {
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
+        $tareasad=task::where('deleted', 0)->paginate(10);
+        $tareaste=task::where('deleted', 0)->paginate(10);
         
-        return view('tareas.index',$datos);
+        return view('tareas.index',compact('tareasad','tareaste'));
     }
 
     /**
@@ -96,7 +97,6 @@ class TareasController extends Controller
     {
         $valor = task::where('id', $id);
         $valor -> increment('deleted');
-        $datos['tareas']=task::where('deleted', 0)->paginate(10);
-        return view('tareas.index',$datos);
+        return back();
     }
 }

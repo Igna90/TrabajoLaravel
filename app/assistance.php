@@ -11,7 +11,7 @@ class assistance extends Model
     protected $fillable= [
     'student_id', 'date', 'assistance','deleted',
     ];
-    public function users(){
+    public function Users(){
         return $this->belongsTo(User::class, 'student_id');
     }
 }
