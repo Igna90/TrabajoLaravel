@@ -1,12 +1,22 @@
 @extends('layouts.principal')
+@section('title')
+Permisos
+@stop
 @section('content')
-<div class="container-fluid">
+<div class="content">
     <!-- 404 Error Text -->
-    <div class="text-center">
-        <div class="error mx-auto" data-text="Permisos">Permisos</div>
-        <p class="lead text-gray-800 mb-5">Página no disponible</p>
-        <p class="text-gray-500 mb-0">Necesitas más privilegios para acceder a este contenido</p>
-        <a href="{{url('/')}}">Vuelve a la página principal</a>
+    <div class="error-page">
+        <h2 class="headline text-yellow">9</h2>
+        <h3><i class="fa fa-warning text-yellow"></i> Oops! Página no disponible.</h3>
+        <p>Estas intentando ir donde no debes...</p>
     </div>
+    
 </div>
+<div class="callout callout-warning" style="margin-bottom: 0!important;">
+            <h4><i class="fa fa-info"></i> Nota: </h4>
+            <p>
+            Necesitas más privilegios para acceder a este contenido.
+            Puedes retroceder a <a href="{{ url('/') }}">la página principal</a> o usando el menú.
+            </p>
+        </div>
 @stop

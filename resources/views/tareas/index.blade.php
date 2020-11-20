@@ -39,7 +39,7 @@ Tareas
             </tr>
           </tfoot>
           <tbody>
-            @forelse($tareas as $tarea)
+            @forelse($tareasad as $tarea)
             <tr>
               <td>{{$tarea-> number}}</td>
               <td>{{$tarea-> description}}</td>
@@ -58,6 +58,40 @@ Tareas
             @empty
             @endforelse
             @endLoggedAD()
+            @LoggedTE()
+          <thead>
+            <tr>
+              <th>Numero</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th></th>
+              <th></th>
+              <th class="actions"></th>
+            </tr>
+          </tfoot>
+          <tbody>
+            @forelse($tareaste as $tarea)
+            <tr>
+              <td>{{$tarea-> number}}</td>
+              <td>{{$tarea-> description}}</td>
+              <td class="actions">
+                <ul class="list-inline" style="margin-bottom:0px;">
+                  <li><a href="{{ url('/tareas/'.$tarea->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>
+                  <li>
+                    <form method="post" action="{{url('/tareas/' .$tarea->id) }}">
+                      {{csrf_field()}}
+                      {{ method_field('DELETE')}}
+                      <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('¿Está seguro de querer borrar?');" class="btn btn-danger btn-icon-split"><i class="fa fa-trash"></i></button></form>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            @empty
+            @endforelse
+            @endLoggedTE()
           </tbody>
         </table>
       </div>
