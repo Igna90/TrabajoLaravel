@@ -61,15 +61,16 @@ Asistencias
                                 </ul>
                             </td>
                         </tr>
+                        @empty
+                        @endforelse
                     </tbody>
-                    @empty
-                    @endforelse
                     @endLoggedAD()
                     @LoggedAL()
                     <thead>
                         <tr>
                             <th>Fecha</th>
                             <th>Asistencia</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -96,9 +97,9 @@ Asistencias
                                 </ul>
                             </td>
                         </tr>
+                        @empty
+                        @endforelse
                     </tbody>
-                    @empty
-                    @endforelse
                     @endLoggedAL()
                 </table>
             </div>
