@@ -69,7 +69,7 @@ Empresas
 </div>
 @stop
 
-@section('js')
+<!-- @section('js')
 <script>
     (function($) {
 
@@ -83,6 +83,6 @@ Empresas
       renderBoolColumn('#tbl','bool');
     })(jQuery);
   </script>
-  @stop
+  @stop -->
 
 
