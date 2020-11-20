@@ -13,6 +13,7 @@ Modulos {{$modulo->id}}
     <label for="text">{{'name'}}</label>
         <input type="text" name="name" id="name" value="{{$modulo->name}}"/>
         <br>
+        <label for="text">{{'Ciclo: '}}</label>
         <select name="cycle_id" id="cycle_id">
             <option value="{{ $cicloedit['id'] }}">{{ $cicloedit ['name'] }}</option>
             @foreach($ciclos as $ciclo)
