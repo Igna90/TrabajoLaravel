@@ -39,6 +39,17 @@ class ModulosController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100',
+                'cycle_id' => 'required|max:500',
+            ],
+            [
+                'date.required' => __("Por favor el campo Fecha es requerido"),
+                'module_id.required' => __("Por favor el campo de módulo es requerido"),
+            ]
+        );
         $datosTarea=request()->except('_token');
         module::insert($datosTarea);
         return redirect('modulos');

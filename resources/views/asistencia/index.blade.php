@@ -102,6 +102,12 @@ Asistencias
                     </tbody>
                     @endLoggedAL()
                 </table>
+                @LoggedAD()
+                {{$asistencias->links()}}
+                @endLoggedAD
+                @LoggedAL()
+                {{$asistenciasAl->links()}}
+                @endLoggedAL
             </div>
         </div>
     </div>

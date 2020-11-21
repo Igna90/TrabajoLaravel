@@ -97,11 +97,16 @@ Fichas
                             </td>
                         </tr>
                         @empty
-
                         @endforelse
                         @endLoggedAD()
                     </tbody>
                 </table>
+                @LoggedAD()
+                {{$fichas->links()}}
+                @endLoggedAD
+                @LoggedAL()
+                {{$fichasAl->links()}}
+                @endLoggedAL
             </div>
         </div>
     </div>

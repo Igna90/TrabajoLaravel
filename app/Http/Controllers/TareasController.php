@@ -38,6 +38,17 @@ class TareasController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'number' => 'required|max:100',
+                'description' => 'required|max:500',
+            ],
+            [
+                'number.required' => __("Por favor el campo numero es requerido"),
+                'description.required' => __("Por favor el campo descripcion es requerido"),
+            ]
+        );
         $datosTarea=request()->except('_token');
         task::insert($datosTarea);
         return redirect('tareas');
@@ -76,6 +87,17 @@ class TareasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'number' => 'required|max:100',
+                'description' => 'required|max:500',
+            ],
+            [
+                'number.required' => __("Por favor el campo numero es requerido"),
+                'description.required' => __("Por favor el campo descripcion es requerido"),
+            ]
+        );
         $datos=request()->except(['_token', '_method']);
         task::where('id','=',$id)->update($datos);
         return redirect('tareas');

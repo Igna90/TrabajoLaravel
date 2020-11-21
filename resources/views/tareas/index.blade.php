@@ -94,6 +94,12 @@ Tareas
             @endLoggedTE()
           </tbody>
         </table>
+        @LoggedAD()
+        {{$tareasad->links()}}
+        @endLoggedAD
+        @LoggedTE()
+        {{$tareaste->links()}}
+        @endLoggedTE
       </div>
     </div>
   </div>

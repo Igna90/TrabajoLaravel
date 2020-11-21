@@ -41,11 +41,11 @@ Resultados
                     </tfoot>
                     </thead>
                     <tbody>
-                    @forelse($resultados as $resultado)
+                        @forelse($resultados as $resultado)
                         <tr>
                             <td>{{$resultado-> number}}</td>
                             <td>{{$resultado-> description}}</td>
-                            <td>{{$resultado->find($resultado->id)->Modules->name}}}}</td>
+                            <td>{{$resultado->find($resultado->id)->Modules->name}}</td>
                             <td class="actions">
                                 <ul class="list-inline" style="margin-bottom:0px;">
                                     <li><a href="{{ url('/resultados/'.$resultado->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>
@@ -62,6 +62,7 @@ Resultados
                         @endforelse
                     </tbody>
                 </table>
+                {{$resultados->links()}}
             </div>
         </div>
     </div>
@@ -72,14 +73,14 @@ Resultados
 <script>
     (function($) {
 
-      var table = $('.data-tables').DataTable({
-        "columnDefs": [{
-           "targets": 'no-sort',
-           "orderable": false,
-         }],
-      });
-      //replace bool column to checkbox
-      renderBoolColumn('#tbl','bool');
+        var table = $('.data-tables').DataTable({
+            "columnDefs": [{
+                "targets": 'no-sort',
+                "orderable": false,
+            }],
+        });
+        //replace bool column to checkbox
+        renderBoolColumn('#tbl', 'bool');
     })(jQuery);
-  </script>
-  @stop
+</script>
+@stop

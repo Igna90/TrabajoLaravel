@@ -13,6 +13,7 @@ Tarea {{$tarea->id}}
                 <h3 class="box-title">Formulario de tarea</h3>
             </div>
             <div class="box-body">
+            @include('partials.errors')
                 <form action="{{ url('/tareas/' .$tarea->id)}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{method_field('PATCH')}}
