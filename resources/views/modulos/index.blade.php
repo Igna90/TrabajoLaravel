@@ -26,7 +26,7 @@ Módulos
       </div>
       <div class="box-body table-responsive no-padding">
         <table id="tbl" class="table data-tables table-striped table-hover" cellspacing="0" width="100%">
-        @LoggedTE()
+          @LoggedTE()
           <thead>
             <tr>
               <th>Nombre</th>
