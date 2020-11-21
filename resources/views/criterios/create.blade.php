@@ -1,16 +1,20 @@
 @extends('layouts.principal')
 @section('title')
-<title>Crear CCE</title>
 @stop
+@section('page-header')
+@endsection
 @section('content')
 <div class="container-fluid">
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Crear CCE</h1>
-        <a href="{{url('criterios')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Volver</a>
-    </div>
-    <form action="{{ url('criterios')}}" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
+    <div class="col-md-8">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h2>{{ __("Crear criterios") }}</h2>
+                <hr />
+            </div>
+            @include('partials.errors')
+            <div class="box-body">
+                <form action="{{ url('criterios')}}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
     <label for="number">{{'Rra'}}</label>
         <input type="text" name="ra_id" id="ra_id"/>
         <br>
