@@ -1,8 +1,9 @@
 @extends('layouts.principal')
 @section('title')
-<title>Usuarios</title>
+Editar usuarios
 @stop
 @section('page-header')
+<h1 class="h3 mb-0 text-gray-800">Edición de usuarios</h1>
 @endsection
 @section('content')
 <div class="container-fluid">
