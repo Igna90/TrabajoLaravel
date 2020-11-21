@@ -11,4 +11,10 @@ class ce extends Model
     protected $fillable = [
         'ra_id', 'task_id', 'word', 'description', 'mark', 'deleted',
     ];
+    public function ras(){
+        return $this->belongsTo(ra::class, 'ra_id');
+    }
+    public function tareas(){
+        return $this->belongsTo(task::class, 'task_id');
+    }
 }
