@@ -33,7 +33,7 @@
                     <input type="text" name="mark" id="mark" value="{{$criterio->mark}}" />
                     <br>
                     <input type="submit" value="Editar" onclick="return confirm('¿Está seguro de querer editar?');" class="btn btn-info">
-                    <a href="{{url('empresa')}}" class="btn btn-primary"> Volver</a>
+                    <a href="{{url('criterios')}}" class="btn btn-primary"> Volver</a>
                 </form>
             </div>
             @stop

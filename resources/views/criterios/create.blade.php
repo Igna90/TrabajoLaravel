@@ -30,7 +30,7 @@
                     <input type="text" name="mark" id="mark" />
                     <br>
                     <input type="submit" value="Editar" class="btn btn-info">
-                    <a href="{{url('empresa')}}" class="btn btn-primary"> Volver</a>
+                    <a href="{{url('criterios')}}" class="btn btn-primary"> Volver</a>
                 </form>
             </div>
         </div>
