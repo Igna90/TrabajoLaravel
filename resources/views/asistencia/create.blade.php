@@ -9,9 +9,11 @@ Crear Asistencia
 <div class="container-fluid">
     <div class="col-md-6">
         <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Asistencia dia 1</h3>
+        <div class="box-header with-border">
+                <h2>{{ __("Editar criterios dia 1") }}</h2>
+                <hr />
             </div>
+            @include('partials.errors')
             <div class="box-body">
                 <form action="{{ url('asistencia')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -25,9 +27,11 @@ Crear Asistencia
             </div>
         </div>
         <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Asistencia dia 2</h3>
+        <div class="box-header with-border">
+                <h2>{{ __("Editar criterios dia 2") }}</h2>
+                <hr />
             </div>
+            @include('partials.errors')
             <div class="box-body">
                 <form action="{{ url('asistencia')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
@@ -41,9 +45,11 @@ Crear Asistencia
             </div>
         </div>
         <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Asistencia dia 3</h3>
+        <div class="box-header with-border">
+                <h2>{{ __("Editar criterios dia 3") }}</h2>
+                <hr />
             </div>
+            @include('partials.errors')
             <div class="box-body">
                 <form action="{{ url('asistencia')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}

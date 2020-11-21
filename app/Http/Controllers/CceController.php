@@ -38,6 +38,23 @@ class CceController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'word' => 'required|max:100',
+                'description' => 'required|max:500',
+                'ra_id' => 'required|max:100',
+                'task_id' => 'required|max:100|email',
+                'mark' => 'required|max:100|email',
+            ],
+            [
+                'word.required' => __("Por favor el campo criterios del ciclo es requerido"),
+                'description.required' => __("Por favor el campo descripción es requerido"),
+                'ra_id.required' => __("Por favor el campo de resultado por aprendizaje es requerido"),
+                'task_id.required' => __("Por favor el campo tarea es requerido"),
+                'mark.required' => __("Por favor el campo de marcado es requerido"),
+            ]
+        );
         $datosTarea=request()->except('_token');
         ce::insert($datosTarea);
         return redirect('criterios');
@@ -75,6 +92,23 @@ class CceController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'word' => 'required|max:100',
+                'description' => 'required|max:500',
+                'ra_id' => 'required|max:100',
+                'task_id' => 'required|max:100|',
+                'mark' => 'required|max:100|',
+            ],
+            [
+                'word.required' => __("Por favor el campo criterios del ciclo es requerido"),
+                'description.required' => __("Por favor el campo descripción es requerido"),
+                'ra_id.required' => __("Por favor el campo de resultado por aprendizaje es requerido"),
+                'task_id.required' => __("Por favor el campo tarea es requerido"),
+                'mark.required' => __("Por favor el campo de marcado es requerido"),
+            ]
+        );
         $datos=request()->except(['_token', '_method']);
         ce::where('id','=',$id)->update($datos);
         return redirect('criterios');

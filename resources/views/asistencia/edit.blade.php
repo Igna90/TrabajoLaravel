@@ -9,8 +9,10 @@ Ficha {{$asistencia->id}}
     <div class="col-md-8">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3>Crear empresa</h3>
+                <h3>Editar Asistencia</h3>
             </div>
+            @include('partials.errors')
+            <div class="box-body">
             <form action="{{ url('/asistencia/' .$asistencia->id)}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{method_field('PATCH')}}
