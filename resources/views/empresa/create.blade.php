@@ -1,6 +1,6 @@
 @extends('layouts.principal')
 @section('title')
-<title>Empresas</title>
+Crear Empresa
 @stop
 @section('page-header')
 @endsection
@@ -8,10 +8,8 @@
 <div class="container-fluid">
   <div class="col-md-8">
     <div class="box box-primary">
-
       <div class="box-header with-border">
         <h2>{{ __("Crear una empresa") }}</h2>
-
       </div>
       <div class="box-body">
         @include('partials.errors')
@@ -26,8 +24,6 @@
           <br />
           <input type="submit" value="Agregar" class="btn btn-info">
           <a href="{{url('empresa')}}" class="btn btn-primary"> Volver</a>
-
-
       </div>
     </div>
   </div>

@@ -36,6 +36,19 @@ class CicloController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100',
+                'grade' => 'required|max:500',
+                'date' => 'required|max:100|date',
+            ],
+            [
+                'name.required' => __("Por favor el campo nombre es requerido"),
+                'grade.required' => __("Por favor el campo de grado es requerido"),
+                'date.required' => __("Por favor el campo de año es requerido"),
+            ]
+        );
         $datosCiclo=request()->except('_token');
         cycle::insert($datosCiclo);
         return redirect('ciclo');
@@ -73,6 +86,19 @@ class CicloController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100',
+                'grade' => 'required|max:500',
+                'date' => 'required|max:100|date',
+            ],
+            [
+                'name.required' => __("Por favor el campo nombre es requerido"),
+                'grade.required' => __("Por favor el campo de grado es requerido"),
+                'date.required' => __("Por favor el campo de año es requerido"),
+            ]
+        );
         $datosCiclo=request()->except(['_token','_method']);
         cycle::where('id','=',$id)->update($datosCiclo);
         $datosCiclo['ciclos']=cycle::where('deleted', 0)->paginate(10);

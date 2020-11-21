@@ -46,9 +46,7 @@ Usuarios
                         </tr>
                     </tfoot>
                     <tbody>
-
                         @forelse( $usuarios as $usuario)
-                    
                         <tr>
                             <td>{{ $usuario->name}}</td>
                             <td>{{ $usuario->firstname}} </td>
@@ -74,12 +72,12 @@ Usuarios
                         @endforelse
                     </tbody>
                 </table>
+                {{$usuarios->links()}}
             </div>
         </div>
     </div>
 </div>
 @stop
-
 @section('js')
 <script>
     (function($) {

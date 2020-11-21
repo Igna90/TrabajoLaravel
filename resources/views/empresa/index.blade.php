@@ -41,7 +41,7 @@ Empresas
                     </tfoot>
                     <tbody>
                         @forelse($empresas as $empresa)
-                    
+
                         <tr>
 
                             <td>{{ $empresa->name}} </td>
@@ -69,20 +69,18 @@ Empresas
 </div>
 @stop
 
-<!-- @section('js')
+@section('js')
 <script>
     (function($) {
 
-      var table = $('.data-tables').DataTable({
-        "columnDefs": [{
-           "targets": 'no-sort',
-           "orderable": false,
-         }],
-      });
-      //replace bool column to checkbox
-      renderBoolColumn('#tbl','bool');
+        var table = $('.data-tables').DataTable({
+            "columnDefs": [{
+                "targets": 'no-sort',
+                "orderable": false,
+            }],
+        });
+        //replace bool column to checkbox
+        renderBoolColumn('#tbl', 'bool');
     })(jQuery);
-  </script>
-  @stop -->
-
-
+</script>
+@stop

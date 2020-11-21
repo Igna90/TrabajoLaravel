@@ -62,6 +62,7 @@ Ciclos
                         @endforelse
                     </tbody>
                 </table>
+                {{$ciclos->links()}}
             </div>
         </div>
     </div>

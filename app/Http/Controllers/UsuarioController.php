@@ -45,6 +45,27 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100',
+                'firstname' => 'required|max:500',
+                'phone' => 'required|max:100',
+                'email' => 'required|max:100|email',
+                'email_verified_at' => 'required|max:100|email',
+                'password' => 'required|max:100',
+                'type' => 'required|max:100',
+            ],
+            [
+                'name.required' => __("Por favor el campo nombre del ciclo es requerido"),
+                'firstname.required' => __("Por favor el campo de grado es requerido"),
+                'phone.required' => __("Por favor el campo de año es requerido"),
+                'email.required' => __("Por favor el campo nombre del ciclo es requerido"),
+                'email_verified_at.required' => __("Por favor el campo de grado es requerido"),
+                'password.required' => __("Por favor el campo de año es requerido"),
+                'type.required' => __("Por favor el campo nombre del ciclo es requerido"),
+            ]
+        );
         $datosUsuario = request()->except('_token');
         User::insert(['password'=>bcrypt(request()->password)]);
         User::insert($datosUsuario);
@@ -87,6 +108,27 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100',
+                'firstname' => 'required|max:500',
+                'phone' => 'required|max:100',
+                'email' => 'required|max:100|email',
+                'email_verified_at' => 'required|max:100|email',
+                'password' => 'required|max:100',
+                'type' => 'required|max:100',
+            ],
+            [
+                'name.required' => __("Por favor el campo nombre del ciclo es requerido"),
+                'firstname.required' => __("Por favor el campo de grado es requerido"),
+                'phone.required' => __("Por favor el campo de año es requerido"),
+                'email.required' => __("Por favor el campo nombre del ciclo es requerido"),
+                'email_verified_at.required' => __("Por favor el campo de grado es requerido"),
+                'password.required' => __("Por favor el campo de año es requerido"),
+                'type.required' => __("Por favor el campo nombre del ciclo es requerido"),
+            ]
+        );
         $datosUsuario = request()->except(['_token', '_method']);
         User::where('id', '=', $id)->update($datosUsuario);
         return redirect('usuario');

@@ -74,6 +74,17 @@ class ModulosController extends Controller
      */
     public function edit($id)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100',
+                'cycle_id' => 'required|max:500',
+            ],
+            [
+                'date.required' => __("Por favor el campo Fecha es requerido"),
+                'module_id.required' => __("Por favor el campo de módulo es requerido"),
+            ]
+        );
         $modulo = module::findOrFail($id);
         $ciclos = cycle::all()->where('deleted', 0);
         $cicloedit = cycle::findOrFail($modulo->cycle_id);
