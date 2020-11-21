@@ -39,6 +39,19 @@ class RraController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'number' => 'required|max:100',
+                'description' => 'required|max:500',
+                'module_id' => 'required|max:500',
+            ],
+            [
+                'date.required' => __("Por favor el campo Fecha es requerido"),
+                'description.required' => __("Por favor el campo descripcion es requerido"),
+                'module_id.required' => __("Por favor el campo de módulo es requerido"),
+            ]
+        );
         $datosTarea=request()->except('_token');
         ra::insert($datosTarea);
         return redirect('resultados');
@@ -77,6 +90,19 @@ class RraController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'number' => 'required|max:100',
+                'description' => 'required|max:500',
+                'module_id' => 'required|max:500',
+            ],
+            [
+                'date.required' => __("Por favor el campo Fecha es requerido"),
+                'description.required' => __("Por favor el campo descripcion es requerido"),
+                'module_id.required' => __("Por favor el campo de módulo es requerido"),
+            ]
+        );
         $datos=request()->except(['_token', '_method']);
         ra::where('id','=',$id)->update($datos);
         return redirect('resultados');

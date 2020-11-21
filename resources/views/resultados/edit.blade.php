@@ -13,6 +13,7 @@ Resultado por aprendizaje {{$resultado->id}}
                 <h3 class="box-title">Formulario de resultado por aprendizaje</h3>
             </div>
             <div class="box-body">
+                @include('partials.errors')
                 <form action="{{ url('/resultados/' .$resultado->id) }}" method="post">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}

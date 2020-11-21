@@ -13,6 +13,7 @@ Crear modulo
                 <h3 class="box-title">Formulario de modulo</h3>
             </div>
             <div class="box-body">
+                @include('partials.errors')
                 <form action="{{ url('modulos')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for="name">{{'Nombre del módulo'}}</label>

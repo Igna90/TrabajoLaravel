@@ -97,7 +97,6 @@ Fichas
                             </td>
                         </tr>
                         @empty
-
                         @endforelse
                         @endLoggedAD()
                     </tbody>

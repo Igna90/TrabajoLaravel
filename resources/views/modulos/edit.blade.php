@@ -13,6 +13,7 @@ Módulo {{$modulo->id}}
                 <h3 class="box-title">Formulario de Módulo</h3>
             </div>
             <div class="box-body">
+                @include('partials.errors')
                 <form action="{{ url('/modulos/' .$modulo->id)}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{method_field('PATCH')}}
