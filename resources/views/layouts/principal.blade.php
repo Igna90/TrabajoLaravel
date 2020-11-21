@@ -112,7 +112,7 @@
                     <p class="user-panel-name">{{ Auth::user()->name }} </p>
                     @else
                     <p>
-                      <small ><a href="{{ route('logout', auth()->id()) }}"> <span>Inicia sesión</span></a></small>
+                      <small ><a href="{{ url('login') }}"> <span>Inicia sesión</span></a></small>
                     </p>
                     @endLogged()
                   </div>

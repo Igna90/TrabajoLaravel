@@ -40,8 +40,10 @@
                 <br />
                 <br />
                 <label for="type">{{'Tipo de usuario:'}}</label>
-                <input type="radio" name="type" value="al" {{ ($usuario->type=="al")? "checked" : "" }}> Alumno
-                <input type="radio" name="type" value="te" {{ ($usuario->type=="te")? "checked" : "" }}>Tutor educativo
+                <input type="radio" name="type" value="al" {{ ($usuario->type=="al")? "checked" : "" }}> Alumno</input>
+                <input type="radio" name="type" value="te" {{ ($usuario->type=="te")? "checked" : "" }}>Tutor educativo</input>
+                <input type="radio" name="type" value="te" {{ ($usuario->type=="ad")? "checked" : "" }} disabled>Administrador</input>
+                <input type="radio" name="type" value="te" {{ ($usuario->type=="tl")? "checked" : "" }} disabled>Tutor laboral</input>
                 <br />
                 <br />
                 <label for="enterprise_id">Empresas</label>
@@ -54,7 +56,6 @@
                 <br />
                 <label for="cycle_id">Elige un ciclo para el alumno</label>
                 <select name="cycle_id" id="cycle_id">
-                    <option value="">--Escoja el ciclo--</option>
                     @foreach($ciclos as $ciclo)
                     <option value="{{ $ciclo['id'] }}">{{ $ciclo ['name'] }}</option>
                     @endforeach
