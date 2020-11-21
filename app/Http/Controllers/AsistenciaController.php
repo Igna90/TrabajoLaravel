@@ -39,6 +39,21 @@ class AsistenciaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate(
+            request(),
+            [
+                'date' => 'required|max:100',
+                'assistance' => 'required|max:500',
+                'student_id' => 'required|max:100',
+    
+            ],
+            [
+                'date.required' => __("Por favor el campo requiere una fecha valida"),
+                'assistance.required' => __("Por favor el campo asistencia es requerido"),
+                'student_id.required' => __("Por favor el campo nombre es requerido"),
+            ]
+        );
         
         assistance::insert(['date'=>request()->date1, 'assistance'=>request()->assistance1 , 'student_id'=> auth()->id()]);
         assistance::insert(['date'=>request()->date2, 'assistance'=>request()->assistance2 , 'student_id'=> auth()->id()]);
@@ -79,6 +94,18 @@ class AsistenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'date' => 'required|max:100',
+                'assistance' => 'required|max:500',
+    
+            ],
+            [
+                'date.required' => __("Por favor el campo requiere una fecha valida"),
+                'assistance.required' => __("Por favor el campo asistencia es requerido"),
+            ]
+        );
         $datos=request()->except(['_token', '_method']);
         assistance::where('id','=',$id)->update($datos);
         return redirect('asistencia');
