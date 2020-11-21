@@ -11,4 +11,10 @@ class ra extends Model
     protected $fillable = [
         'number', 'description', 'module_id', 'deleted',
     ];
+    public function Ces(){
+        return $this->hasMany(ce::class);
+    }
+    public function Modules(){
+        return $this->belongsTo(module::class, 'module_id');
+    }
 }

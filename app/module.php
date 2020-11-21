@@ -11,4 +11,10 @@ class module extends Model
     protected $fillable = [
         'cycle_id', 'name', 'deleted',
     ];
+    public function Ras(){
+        return $this->hasMany(ra::class);
+    }
+    public function Cycles(){
+        return $this->belongsTo(cycle::class, 'cycle_id');
+    }
 }

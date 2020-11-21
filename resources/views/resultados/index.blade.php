@@ -45,7 +45,7 @@ Resultados
                         <tr>
                             <td>{{$resultado-> number}}</td>
                             <td>{{$resultado-> description}}</td>
-                            <td>{{$resultado-> module_id}}</td>
+                            <td>{{$resultado->find($resultado->id)->Modules->name}}}}</td>
                             <td class="actions">
                                 <ul class="list-inline" style="margin-bottom:0px;">
                                     <li><a href="{{ url('/resultados/'.$resultado->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>

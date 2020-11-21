@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\cycle;
-use App\task;
 use App\module;
 
 use Illuminate\Http\Request;

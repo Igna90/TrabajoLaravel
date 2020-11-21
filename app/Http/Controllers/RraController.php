@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\task;
 use App\ra;
+use App\module;
 
 use Illuminate\Http\Request;
 
@@ -27,7 +27,8 @@ class RraController extends Controller
      */
     public function create()
     {
-        return view('resultados.create');
+        $modulos = module::all()->where('deleted', 0);
+        return view('resultados.create', compact('modulos'));
     }
 
     /**
@@ -63,8 +64,8 @@ class RraController extends Controller
     public function edit($id)
     {
         $resultado = ra::findOrFail($id);
-
-        return view('resultados.edit', compact('resultado'));
+        $modulos = module::all()->where('deleted', 0);
+        return view('resultados.edit', compact('resultado', 'modulos'));
     }
 
     /**

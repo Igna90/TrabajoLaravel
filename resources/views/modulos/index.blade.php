@@ -46,7 +46,7 @@ Módulos
                 
                     <tr>
                         <td>{{$modulo-> name}}</td>
-                        <td>{{$modulo-> cycle_id}}</td>
+                        <td>{{$modulo->find($modulo->id)->Cycles->name}}</td>
                         <td class="actions">
                             <ul class="list-inline" style="margin-bottom:0px;">
                             <li><a href="{{ url('/modulos/'.$modulo->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>
