@@ -37,7 +37,17 @@ class FichasController extends Controller
      */
     public function store(Request $request)
     {
-
+        $this->validate(
+            request(),
+            [
+                'date' => 'required|max:100', // forums es la tabla dónde debe ser único
+                'description' => 'required|max:500',
+            ],
+            [
+                'date.required' => __("Por favor el campo Fecha es requerido"),
+                'description.required' => __("Por favor el campo Descripción es requerido"),
+            ]
+        );
         worksheet::insert(['date'=>request()->date, 'description'=>request()->description , 'student_id'=> auth()->id()]);
         return redirect('fichas');
     }
@@ -75,6 +85,17 @@ class FichasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate(
+            request(),
+            [
+                'date' => 'required|max:100', // forums es la tabla dónde debe ser único
+                'description' => 'required|max:500',
+            ],
+            [
+                'date.required' => __("Por favor el campo Fecha es requerido"),
+                'description.required' => __("Por favor el campo Descripción es requerido"),
+            ]
+        );
         $datos=request()->except(['_token', '_method']);
         worksheet::where('id','=',$id)->update($datos);
         return redirect('fichas');

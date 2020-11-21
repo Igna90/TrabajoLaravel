@@ -13,14 +13,15 @@ Ficha {{$ficha->id}}
                 <h3 class="box-title">Formulario de ficha</h3>
             </div>
             <div class="box-body">
+                @include('partials.errors')
                 <form action="{{ url('/fichas/' .$ficha->id)}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{method_field('PATCH')}}
                     <label for="date">{{'Fecha'}}</label>
-                    <input type="date" name="date" id="date" value="{{$ficha->date}}" required />
+                    <input type="date" name="date" id="date" value="{{$ficha->date}}"  />
                     <br>
                     <label for="description">{{'Descripción'}}</label>
-                    <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" required>{{$ficha->description}}</textarea>
+                    <textarea name="description" id="description" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40" >{{$ficha->description}}</textarea>
                     <br>
                     <br>
             </div>
