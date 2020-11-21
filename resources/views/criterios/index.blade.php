@@ -24,32 +24,32 @@ Criterios evaluación
                 </a>
             </div>
             <div class="box-body table-responsive no-padding">
-            <table id="tbl" class="table data-tables table-striped table-hover" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th>Rra</th>
-            <th>Tarea</th>
-            <th>Criterios</th>                        
-            <th>Descripción</th>
-            <th>Mark</th>
-            </tr>
-        </thead>
-        <tfoot>
+                <table id="tbl" class="table data-tables table-striped table-hover" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Resultado de aprendizaje</th>
+                            <th>Tarea</th>
+                            <th>Criterios</th>
+                            <th>Descripción</th>
+                            <th>Mark</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
                         <tr>
                             <th></th>
                             <th></th>
                             <th class="actions"></th>
                         </tr>
                     </tfoot>
-        <tbody>
-        @forelse($criterios as $criterio)
-            <tr>
-                <td>{{$criterio-> ra_id}}</td>
-                <td>{{$criterio-> task_id}}</td>
-                <td>{{$criterio-> word}}</td>
-                <td>{{$criterio-> description}}</td>
-                <td>{{$criterio-> mark}}</td>
-                <td class="actions">
+                    <tbody>
+                        @forelse($criterios as $criterio)
+                        <tr>
+                            <td>{{$criterio->find($criterio->id)->ras->number}}</td>
+                            <td>{{$criterio->find($criterio->id)->tareas->number}}</td>
+                            <td>{{$criterio-> word}}</td>
+                            <td>{{$criterio-> description}}</td>
+                            <td>{{$criterio-> mark}}</td>
+                            <td class="actions">
                                 <ul class="list-inline" style="margin-bottom:0px;">
                                     <li><a href="{{ url('/criterios/'.$criterio->id.'/edit') }}" title="" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a></li>
                                     <li>
@@ -87,5 +87,3 @@ Criterios evaluación
     })(jQuery);
   </script>
   @stop -->
-
-
