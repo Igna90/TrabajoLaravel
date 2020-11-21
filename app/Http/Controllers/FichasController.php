@@ -40,12 +40,12 @@ class FichasController extends Controller
         $this->validate(
             request(),
             [
-                'date' => 'required|max:100', // forums es la tabla dónde debe ser único
+                'date' => 'required|max:100|date',
                 'description' => 'required|max:500',
             ],
             [
                 'date.required' => __("Por favor el campo Fecha es requerido"),
-                'description.required' => __("Por favor el campo Descripción es requerido"),
+                'description.required' => __("Por favor el campo descripcion es requerido"),
             ]
         );
         worksheet::insert(['date'=>request()->date, 'description'=>request()->description , 'student_id'=> auth()->id()]);
@@ -88,12 +88,12 @@ class FichasController extends Controller
         $this->validate(
             request(),
             [
-                'date' => 'required|max:100', // forums es la tabla dónde debe ser único
+                'date' => 'required|max:100|date',
                 'description' => 'required|max:500',
             ],
             [
                 'date.required' => __("Por favor el campo Fecha es requerido"),
-                'description.required' => __("Por favor el campo Descripción es requerido"),
+                'description.required' => __("Por favor el campo descripcion es requerido"),
             ]
         );
         $datos=request()->except(['_token', '_method']);

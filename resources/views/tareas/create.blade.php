@@ -13,6 +13,7 @@ Crear tarea
                 <h3 class="box-title">Formulario de ficha</h3>
             </div>
             <div class="box-body">
+            @include('partials.errors')
                 <form action="{{ url('tareas')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for="number">{{'Número'}}</label>
