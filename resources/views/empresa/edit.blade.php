@@ -10,8 +10,11 @@
     <div class="col-md-8">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3>Editar empresa</h3>
             </div>
+            <h2>{{ __("Editar una empresa") }}</h2>
+            <hr />
+            @include('partials.errors')
+
             <form action="{{ url('/empresa/' .$empresa->id)}}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{method_field('PATCH')}}
@@ -20,7 +23,7 @@
                 <br />
                 <br />
                 <label for="email">{{'Email de la empresa'}}</label>
-                <input type="text" name="email" id="email" value="{{$empresa-> email}}">
+                <input type="email" name="email" id="email" value="{{$empresa-> email}}">
                 <br />
                 <br />
                 <input type="submit" value="Editar" class="btn btn-info">

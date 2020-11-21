@@ -36,6 +36,18 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100', // forums es la tabla dónde debe ser único
+                'email' => 'required|max:500',
+            ],
+            [
+                'name.required' => __("Por favor el campo Nombre es requerido"),
+                'email.required' => __("Por favor el campo Email es requerido"),
+            ]
+        );
+
         $datosEmpresa=request()->except('_token');
         enterprise::insert($datosEmpresa);
         return redirect('empresa');
@@ -74,6 +86,18 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->validate(
+            request(),
+            [
+                'name' => 'required|max:100', // forums es la tabla dónde debe ser único
+                'email' => 'required|max:500',
+            ],
+            [
+                'name.required' => __("Por favor el campo Nombre es requerido"),
+                'email.required' => __("Por favor el campo Email es requerido"),
+            ]
+        );
         $datosEmpresa=request()->except(['_token','_method']);
         enterprise::where('id','=',$id)->update($datosEmpresa);
         return redirect('empresa');

@@ -6,38 +6,31 @@
 @endsection
 @section('content')
 <div class="container-fluid">
-<<<<<<< Updated upstream
-<form action="{{ url('empresa')}}" method="post" enctype="multipart/form-data">
-    {{ csrf_field() }}
-    <label for="name">{{'Nombre de la empresa'}}</label>
-    <input type="text" name="name" id="name" value="">
-    <br />
-    <br />
-    <label for="email">{{'Email de la empresa'}}</label>
-    <input type="email"  name="email" id="email" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></input>
-    <br />
-    <input type="submit" value="Agregar" class="btn btn-primary">
-=======
   <div class="col-md-8">
     <div class="box box-primary">
+
       <div class="box-header with-border">
-        <h3>Crear empresa</h3>
+        <h2>{{ __("Crear una empresa") }}</h2>
+
       </div>
->>>>>>> Stashed changes
+      <div class="box-body">
+        @include('partials.errors')
+        <form action="{{ url('empresa')}}" method="post" enctype="multipart/form-data">
+          {{ csrf_field() }}
+          <label for="name">{{'Nombre de la empresa'}}</label>
+          <input type="text" name="name" id="name" value="">
+          <br />
+          <br />
+          <label for="email">{{'Email de la empresa'}}</label>
+          <textarea name="email" id="email" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
+          <br />
+          <input type="submit" value="Agregar" class="btn btn-info">
+          <a href="{{url('empresa')}}" class="btn btn-primary"> Volver</a>
 
-      <form action="{{ url('empresa')}}" method="post" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        <label for="name">{{'Nombre de la empresa'}}</label>
-        <input type="text" name="name" id="name" value="">
-        <br />
-        <br />
-        <label for="email">{{'Email de la empresa'}}</label>
-        <textarea name="email" id="email" style="resize: none; display:inline-block; vertical-align:middle" rows="3" cols="40"></textarea>
-        <br />
-        <input type="submit" value="Agregar" class="btn btn-primary">
 
-
-
+      </div>
     </div>
-    </form>
-    @stop
+  </div>
+</div>
+</form>
+@stop
