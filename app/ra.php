@@ -11,7 +11,7 @@ class ra extends Model
     protected $fillable = [
         'number', 'description', 'module_id', 'deleted',
     ];
-    public function Ces(){
+    public function relCes(){
         return $this->hasMany(ce::class);
     }
     public function Modules(){
