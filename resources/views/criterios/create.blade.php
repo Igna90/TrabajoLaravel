@@ -15,10 +15,18 @@
                 <form action="{{ url('criterios')}}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for="number">{{'Rra'}}</label>
-                    <input type="text" name="ra_id" id="ra_id" />
+                    <select name="ra_id" id="inputra_id">
+                        @foreach($ras as $ra)
+                        <option value="{{ $ra['id'] }}">{{ $ra ['number'] }}</option>
+                        @endforeach
+                    </select>
                     <br>
                     <label for="number">{{'Tarea'}}</label>
-                    <input type="text" name="task_id" id="task_id" />
+                    <select name="task_id" id="inputask_id">
+                        @foreach($tasks as $task)
+                        <option value="{{ $task['id'] }}">{{ $task ['number'] }}</option>
+                        @endforeach
+                    </select>
                     <br>
                     <label for="number">{{'Word'}}</label>
                     <input type="text" name="word" id="word" />

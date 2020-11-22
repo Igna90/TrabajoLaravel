@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\task;
 use App\ce;
-
+use App\ra;
 use Illuminate\Http\Request;
 
 class CceController extends Controller
@@ -27,7 +27,9 @@ class CceController extends Controller
      */
     public function create()
     {
-        return view('criterios.create');
+        $ras = ra::all()->where('deleted', 0);
+        $tasks = task::all()->where('deleted', 0);
+        return view('criterios.create', compact('ras', 'tasks'));
     }
 
     /**
@@ -80,7 +82,9 @@ class CceController extends Controller
     public function edit($id)
     {
         $criterio = ce::findOrFail($id);
-        return view('criterios.edit', compact('criterio'));
+        $ras = ra::all()->where('deleted', 0);
+        $tasks = task::all()->where('deleted', 0);
+        return view('criterios.edit', compact('criterio', 'ras', 'tasks'));
     }
 
     /**
