@@ -14,4 +14,8 @@ class cycle extends Model
     public function Users(){
         return $this->hasMany(User::class);
         }
+        public function RelRas(){
+            return $this->hasManyThrough(ra::class, module::class);
+            }
+    
 }

@@ -14,7 +14,7 @@ class ce extends Model
     public function ras(){
         return $this->belongsTo(ra::class, 'ra_id');
     }
-    public function tareas(){
+    public function relTask(){
         return $this->belongsTo(task::class, 'task_id');
     }
 }
